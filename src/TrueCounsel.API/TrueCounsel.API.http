@@ -1,0 +1,6 @@
+@TrueCounsel.API_HostAddress = http://localhost:5186
+
+GET {{TrueCounsel.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
