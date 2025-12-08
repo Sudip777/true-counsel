@@ -1,0 +1,16 @@
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\bin\Debug\net9.0\TrueCounsel.Application.deps.json
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\bin\Debug\net9.0\TrueCounsel.Application.dll
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\bin\Debug\net9.0\TrueCounsel.Application.pdb
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\bin\Debug\net9.0\TrueCounsel.Domain.dll
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\bin\Debug\net9.0\TrueCounsel.Domain.pdb
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\obj\Debug\net9.0\TrueCounsel.Application.csproj.AssemblyReference.cache
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\obj\Debug\net9.0\TrueCounsel.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\obj\Debug\net9.0\TrueCounsel.Application.AssemblyInfoInputs.cache
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\obj\Debug\net9.0\TrueCounsel.Application.AssemblyInfo.cs
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\obj\Debug\net9.0\TrueCounsel.Application.csproj.CoreCompileInputs.cache
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\obj\Debug\net9.0\TrueCounsel.Application.sourcelink.json
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\obj\Debug\net9.0\TrueCoun.B2A415ED.Up2Date
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\obj\Debug\net9.0\TrueCounsel.Application.dll
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\obj\Debug\net9.0\refint\TrueCounsel.Application.dll
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\obj\Debug\net9.0\TrueCounsel.Application.pdb
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\obj\Debug\net9.0\ref\TrueCounsel.Application.dll

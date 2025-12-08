@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TrueCounsel.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd6687e689e841320c7ae82c7fdb16ba10cd4347")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd9d40042e669082d50af7524bf61c0ec6d8b536")]
 [assembly: System.Reflection.AssemblyProductAttribute("TrueCounsel.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TrueCounsel.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

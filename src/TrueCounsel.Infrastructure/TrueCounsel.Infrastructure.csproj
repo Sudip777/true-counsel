@@ -1,14 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Http.Resilience" />
 
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TrueCounsel.Application\TrueCounsel.Application.csproj" />
     <ProjectReference Include="..\TrueCounsel.Domain\TrueCounsel.Domain.csproj" />
   </ItemGroup>
-
-  <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
 </Project>
