@@ -2,13 +2,24 @@
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
+
   <ItemGroup Condition="'$(MSBuildProjectExtension)' != '.dcproj'">
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.11" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.11" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.11" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.11" />
     <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="10.0.0" />
     <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.16.1.129956" />
   </ItemGroup>
 
-  
+  <!-- suppress warnings from EF Core migrations -->
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\**\*.cs" />
+    <Compile Include="Data\Migrations\**\*.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+      <NoWarn>None</NoWarn>
+    </Compile>
+  </ItemGroup>
+
   <ItemGroup>
     <!-- Test packages -->
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
