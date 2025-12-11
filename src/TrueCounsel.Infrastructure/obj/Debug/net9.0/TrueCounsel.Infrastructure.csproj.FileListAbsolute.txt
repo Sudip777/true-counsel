@@ -1,4 +1,5 @@
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\bin\Debug\net9.0\TrueCounsel.Infrastructure.deps.json
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\bin\Debug\net9.0\TrueCounsel.Infrastructure.runtimeconfig.json
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\bin\Debug\net9.0\TrueCounsel.Infrastructure.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\bin\Debug\net9.0\TrueCounsel.Infrastructure.pdb
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\bin\Debug\net9.0\TrueCounsel.Application.dll
@@ -15,4 +16,5 @@ C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug\net9.0\TrueCounsel.Infrastructure.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug\net9.0\refint\TrueCounsel.Infrastructure.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug\net9.0\TrueCounsel.Infrastructure.pdb
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug\net9.0\TrueCounsel.Infrastructure.genruntimeconfig.cache
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug\net9.0\ref\TrueCounsel.Infrastructure.dll
