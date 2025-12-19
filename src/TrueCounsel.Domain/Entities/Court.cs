@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using TrueCounsel.Domain.Common;
-using TrueCounsel.Domain.Enums;
 
 namespace TrueCounsel.Domain.Entities
 {
@@ -12,9 +11,8 @@ namespace TrueCounsel.Domain.Entities
         public string? State { get; set; }
         public CourtType CourtTypeField { get; set; } = null!;
 
-        // Navigation: collection of LegalCase for the .WithMany(crt => crt.LegalCases) mapping
-        private readonly List<LegalCase> _legalCases = new();
-        public IReadOnlyCollection<LegalCase> LegalCases => _legalCases.AsReadOnly();
+        // Principal navigation required by the LegalCase configuration
+        private readonly List<LegalCase> _cases = new();
+        public IReadOnlyCollection<LegalCase> Cases => _cases.AsReadOnly();
     }
 }
-

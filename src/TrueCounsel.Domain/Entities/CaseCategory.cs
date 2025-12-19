@@ -1,4 +1,5 @@
-﻿using TrueCounsel.Domain.Common;
+﻿using System.Collections.Generic;
+using TrueCounsel.Domain.Common;
 
 namespace TrueCounsel.Domain.Entities
 {

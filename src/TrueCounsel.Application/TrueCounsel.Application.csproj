@@ -1,16 +1,52 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <None Include="..\..\.editorconfig" Link=".editorconfig" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
     <PackageReference Include="Microsoft.Extensions.Http.Resilience" />
+    <PackageReference Include="Scalar.AspNetCore" />
+    <PackageReference Include="WakaTime" />
     
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TrueCounsel.Domain\TrueCounsel.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\Behaviors\" />
+    <Folder Include="Common\Exception\" />
+    <Folder Include="Features\Auth\Queries\" />
+    <Folder Include="Features\CaseCategory\Commands\" />
+    <Folder Include="Features\CaseCategory\Dtos\" />
+    <Folder Include="Features\CaseCategory\Queries\" />
+    <Folder Include="Features\CaseNote\Commands\" />
+    <Folder Include="Features\CaseNote\Dtos\" />
+    <Folder Include="Features\CaseNote\Queries\" />
+    <Folder Include="Features\CaseParty\Commands\" />
+    <Folder Include="Features\CaseParty\Queries\" />
+    <Folder Include="Features\CaseStatusHistory\Commands\" />
+    <Folder Include="Features\CaseStatusHistory\Queries\" />
+    <Folder Include="Features\CaseType\Commands\" />
+    <Folder Include="Features\CaseType\Dtos\" />
+    <Folder Include="Features\CaseType\Queries\" />
+    <Folder Include="Features\Client\Commands\" />
+    <Folder Include="Features\Client\Dtos\" />
+    <Folder Include="Features\Client\Queries\" />
+    <Folder Include="Features\CourtType\Commands\" />
+    <Folder Include="Features\CourtType\Dtos\" />
+    <Folder Include="Features\CourtType\Queries\" />
+    <Folder Include="Features\Court\Commands\" />
+    <Folder Include="Features\Court\Dtos\" />
+    <Folder Include="Features\Court\Queries\" />
+    <Folder Include="Features\Lawyer\Commands\" />
+    <Folder Include="Features\Lawyer\Dtos\" />
+    <Folder Include="Features\Lawyer\Queries\" />
+    <Folder Include="Features\LegalCase\Commands\" />
+    <Folder Include="Features\LegalCase\Dtos\" />
+    <Folder Include="Features\LegalCase\Queries\" />
+    <Folder Include="Features\User\Commands\" />
+    <Folder Include="Features\User\Dtos\" />
+    <Folder Include="Features\User\Queries\" />
   </ItemGroup>
 
 </Project>

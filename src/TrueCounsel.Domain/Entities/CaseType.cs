@@ -14,7 +14,7 @@ namespace TrueCounsel.Domain.Entities
 
         // Navigation
         public IReadOnlyCollection<CaseCategory> Categories => _categories.AsReadOnly();
-        public IReadOnlyCollection<LegalCase> LegalCases => _cases.AsReadOnly();
+        public IReadOnlyCollection<LegalCase> Cases => _cases.AsReadOnly();
 
         private readonly List<CaseCategory> _categories = new();
         private readonly List<LegalCase> _cases = new();

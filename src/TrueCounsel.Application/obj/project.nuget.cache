@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "iqVikveXM4s=",
+  "dgSpecHash": "dVY5sdOAf5E=",
   "success": true,
   "projectFilePath": "C:\\Users\\sudip\\source\\repos\\TrueCounsel\\src\\TrueCounsel.Application\\TrueCounsel.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\sudip\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.11\\microsoft.aspnetcore.openapi.9.0.11.nupkg.sha512",
+    "C:\\Users\\sudip\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\sudip\\.nuget\\packages\\microsoft.extensions.ambientmetadata.application\\10.0.0\\microsoft.extensions.ambientmetadata.application.10.0.0.nupkg.sha512",
     "C:\\Users\\sudip\\.nuget\\packages\\microsoft.extensions.compliance.abstractions\\10.0.0\\microsoft.extensions.compliance.abstractions.10.0.0.nupkg.sha512",
     "C:\\Users\\sudip\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.11\\microsoft.extensions.configuration.9.0.11.nupkg.sha512",
@@ -30,11 +32,16 @@
     "C:\\Users\\sudip\\.nuget\\packages\\microsoft.extensions.resilience\\10.0.0\\microsoft.extensions.resilience.10.0.0.nupkg.sha512",
     "C:\\Users\\sudip\\.nuget\\packages\\microsoft.extensions.telemetry\\10.0.0\\microsoft.extensions.telemetry.10.0.0.nupkg.sha512",
     "C:\\Users\\sudip\\.nuget\\packages\\microsoft.extensions.telemetry.abstractions\\10.0.0\\microsoft.extensions.telemetry.abstractions.10.0.0.nupkg.sha512",
+    "C:\\Users\\sudip\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512",
+    "C:\\Users\\sudip\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
     "C:\\Users\\sudip\\.nuget\\packages\\polly.core\\8.4.2\\polly.core.8.4.2.nupkg.sha512",
     "C:\\Users\\sudip\\.nuget\\packages\\polly.extensions\\8.4.2\\polly.extensions.8.4.2.nupkg.sha512",
     "C:\\Users\\sudip\\.nuget\\packages\\polly.ratelimiting\\8.4.2\\polly.ratelimiting.8.4.2.nupkg.sha512",
+    "C:\\Users\\sudip\\.nuget\\packages\\salaros.configparser\\0.3.2\\salaros.configparser.0.3.2.nupkg.sha512",
+    "C:\\Users\\sudip\\.nuget\\packages\\scalar.aspnetcore\\2.11.8\\scalar.aspnetcore.2.11.8.nupkg.sha512",
     "C:\\Users\\sudip\\.nuget\\packages\\sonaranalyzer.csharp\\10.16.1.129956\\sonaranalyzer.csharp.10.16.1.129956.nupkg.sha512",
-    "C:\\Users\\sudip\\.nuget\\packages\\system.threading.ratelimiting\\8.0.0\\system.threading.ratelimiting.8.0.0.nupkg.sha512"
+    "C:\\Users\\sudip\\.nuget\\packages\\system.threading.ratelimiting\\8.0.0\\system.threading.ratelimiting.8.0.0.nupkg.sha512",
+    "C:\\Users\\sudip\\.nuget\\packages\\wakatime\\8.1.11\\wakatime.8.1.11.nupkg.sha512"
   ],
   "logs": []
 }

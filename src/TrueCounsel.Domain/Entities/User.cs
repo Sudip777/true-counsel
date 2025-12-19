@@ -1,4 +1,5 @@
-﻿using TrueCounsel.Domain.Common;
+﻿using System;
+using TrueCounsel.Domain.Common;
 using TrueCounsel.Domain.Enums;
 
 namespace TrueCounsel.Domain.Entities

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TrueCounsel.Domain.UnitTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd9d40042e669082d50af7524bf61c0ec6d8b536")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd1a3f4a05ffabadb4ab3d92cd8e6b35fb715ba7")]
 [assembly: System.Reflection.AssemblyProductAttribute("TrueCounsel.Domain.UnitTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TrueCounsel.Domain.UnitTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
