@@ -1,3 +1,11 @@
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\TrueCounsel.API.csproj.AssemblyReference.cache
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\TrueCounsel.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\TrueCounsel.API.AssemblyInfoInputs.cache
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\TrueCounsel.API.AssemblyInfo.cs
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\TrueCounsel.API.csproj.CoreCompileInputs.cache
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\TrueCounsel.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\TrueCounsel.API.sourcelink.json
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\appsettings.json
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\TrueCounsel.API.staticwebassets.endpoints.json
@@ -9,6 +17,9 @@ C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Tru
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Azure.Core.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Azure.Identity.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Humanizer.dll
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Konscious.Security.Cryptography.Argon2.dll
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Konscious.Security.Cryptography.Blake2.dll
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Microsoft.Build.Locator.dll
@@ -65,9 +76,12 @@ C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Mic
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Microsoft.SqlServer.Server.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Mono.TextTemplating.dll
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Newtonsoft.Json.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Polly.Core.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Polly.Extensions.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Polly.RateLimiting.dll
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\ConfigParser.dll
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Scalar.AspNetCore.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\System.ClientModel.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\System.CodeDom.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\System.Composition.AttributedModel.dll
@@ -85,6 +99,7 @@ C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Sys
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\System.Security.Permissions.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\System.Text.Json.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\System.Windows.Extensions.dll
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\WakaTime.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -168,15 +183,7 @@ C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\Tru
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\TrueCounsel.Application.pdb
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\TrueCounsel.Infrastructure.pdb
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\bin\Debug\net9.0\TrueCounsel.Domain.pdb
-C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\TrueCounsel.API.csproj.AssemblyReference.cache
-C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\rpswa.dswa.cache.json
-C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\TrueCounsel.API.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\TrueCounsel.API.AssemblyInfoInputs.cache
-C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\TrueCounsel.API.AssemblyInfo.cs
-C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\TrueCounsel.API.csproj.CoreCompileInputs.cache
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\TrueCounsel.API.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\TrueCounsel.API.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\TrueCounsel.API.sourcelink.json
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
@@ -185,6 +192,7 @@ C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\sta
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\TrueCoun.C6ECBB8B.Up2Date
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\TrueCounsel.API.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.API\obj\Debug\net9.0\refint\TrueCounsel.API.dll

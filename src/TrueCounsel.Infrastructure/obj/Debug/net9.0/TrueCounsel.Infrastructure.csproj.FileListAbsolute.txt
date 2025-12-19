@@ -1,3 +1,9 @@
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug\net9.0\TrueCounsel.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug\net9.0\TrueCounsel.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug\net9.0\TrueCounsel.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug\net9.0\TrueCounsel.Infrastructure.AssemblyInfo.cs
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug\net9.0\TrueCounsel.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug\net9.0\TrueCounsel.Infrastructure.sourcelink.json
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\bin\Debug\net9.0\TrueCounsel.Infrastructure.deps.json
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\bin\Debug\net9.0\TrueCounsel.Infrastructure.runtimeconfig.json
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\bin\Debug\net9.0\TrueCounsel.Infrastructure.dll
@@ -6,12 +12,6 @@ C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\bin\Debug
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\bin\Debug\net9.0\TrueCounsel.Domain.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\bin\Debug\net9.0\TrueCounsel.Application.pdb
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\bin\Debug\net9.0\TrueCounsel.Domain.pdb
-C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug\net9.0\TrueCounsel.Infrastructure.csproj.AssemblyReference.cache
-C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug\net9.0\TrueCounsel.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug\net9.0\TrueCounsel.Infrastructure.AssemblyInfoInputs.cache
-C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug\net9.0\TrueCounsel.Infrastructure.AssemblyInfo.cs
-C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug\net9.0\TrueCounsel.Infrastructure.csproj.CoreCompileInputs.cache
-C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug\net9.0\TrueCounsel.Infrastructure.sourcelink.json
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug\net9.0\TrueCoun.3BE38C29.Up2Date
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug\net9.0\TrueCounsel.Infrastructure.dll
 C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Infrastructure\obj\Debug\net9.0\refint\TrueCounsel.Infrastructure.dll

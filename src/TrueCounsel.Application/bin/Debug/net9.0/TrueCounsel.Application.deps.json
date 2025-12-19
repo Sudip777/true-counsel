@@ -8,14 +8,29 @@
     ".NETCoreApp,Version=v9.0": {
       "TrueCounsel.Application/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.OpenApi": "9.0.11",
           "Microsoft.Extensions.Http.Resilience": "10.0.0",
+          "Scalar.AspNetCore": "2.11.8",
           "SonarAnalyzer.CSharp": "10.16.1.129956",
-          "TrueCounsel.Domain": "1.0.0"
+          "TrueCounsel.Domain": "1.0.0",
+          "WakaTime": "8.1.11"
         },
         "runtime": {
           "TrueCounsel.Application.dll": {}
         }
       },
+      "Microsoft.AspNetCore.OpenApi/9.0.11": {
+        "dependencies": {
+          "Microsoft.OpenApi": "1.6.17"
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.AspNetCore.OpenApi.dll": {
+            "assemblyVersion": "9.0.11.0",
+            "fileVersion": "9.0.1125.52006"
+          }
+        }
+      },
+      "Microsoft.CSharp/4.5.0": {},
       "Microsoft.Extensions.AmbientMetadata.Application/10.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Configuration": "9.0.11",
@@ -338,6 +353,22 @@
           }
         }
       },
+      "Microsoft.OpenApi/1.6.17": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.OpenApi.dll": {
+            "assemblyVersion": "1.6.17.0",
+            "fileVersion": "1.6.17.0"
+          }
+        }
+      },
+      "Newtonsoft.Json/12.0.2": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.2.23222"
+          }
+        }
+      },
       "Polly.Core/8.4.2": {
         "runtime": {
           "lib/net8.0/Polly.Core.dll": {
@@ -371,18 +402,43 @@
           }
         }
       },
-      "SonarAnalyzer.CSharp/10.16.1.129956": {},
-      "System.Threading.RateLimiting/8.0.0": {
+      "Salaros.ConfigParser/0.3.2": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0"
+        },
         "runtime": {
-          "lib/net8.0/System.Threading.RateLimiting.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.23.53103"
+          "lib/netstandard2.0/ConfigParser.dll": {
+            "assemblyVersion": "0.3.2.8",
+            "fileVersion": "0.3.2.8"
+          }
+        }
+      },
+      "Scalar.AspNetCore/2.11.8": {
+        "runtime": {
+          "lib/net9.0/Scalar.AspNetCore.dll": {
+            "assemblyVersion": "2.11.8.0",
+            "fileVersion": "2.11.8.0"
+          }
+        }
+      },
+      "SonarAnalyzer.CSharp/10.16.1.129956": {},
+      "System.Threading.RateLimiting/8.0.0": {},
+      "WakaTime/8.1.11": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2",
+          "Salaros.ConfigParser": "0.3.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/WakaTime.dll": {
+            "assemblyVersion": "8.1.11.2",
+            "fileVersion": "8.1.11.2"
           }
         }
       },
       "TrueCounsel.Domain/1.0.0": {
         "dependencies": {
-          "Microsoft.Extensions.Http.Resilience": "10.0.0"
+          "Microsoft.Extensions.Http.Resilience": "10.0.0",
+          "WakaTime": "8.1.11"
         },
         "runtime": {
           "TrueCounsel.Domain.dll": {
@@ -398,6 +454,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Microsoft.AspNetCore.OpenApi/9.0.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rTa3lp6B8KM8AESIwLakTT6XaoUBTnjAZq2pRX6zS/BzQy6mOVUgaawRSyM0WHykHdwbfrEAmer3ys2xE4DVtg==",
+      "path": "microsoft.aspnetcore.openapi/9.0.11",
+      "hashPath": "microsoft.aspnetcore.openapi.9.0.11.nupkg.sha512"
+    },
+    "Microsoft.CSharp/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
+      "path": "microsoft.csharp/4.5.0",
+      "hashPath": "microsoft.csharp.4.5.0.nupkg.sha512"
     },
     "Microsoft.Extensions.AmbientMetadata.Application/10.0.0": {
       "type": "package",
@@ -581,6 +651,20 @@
       "path": "microsoft.extensions.telemetry.abstractions/10.0.0",
       "hashPath": "microsoft.extensions.telemetry.abstractions.10.0.0.nupkg.sha512"
     },
+    "Microsoft.OpenApi/1.6.17": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Le+kehlmrlQfuDFUt1zZ2dVwrhFQtKREdKBo+rexOwaCoYP0/qpgT9tLxCsZjsgR5Itk1UKPcbgO+FyaNid/bA==",
+      "path": "microsoft.openapi/1.6.17",
+      "hashPath": "microsoft.openapi.1.6.17.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
+      "path": "newtonsoft.json/12.0.2",
+      "hashPath": "newtonsoft.json.12.0.2.nupkg.sha512"
+    },
     "Polly.Core/8.4.2": {
       "type": "package",
       "serviceable": true,
@@ -602,6 +686,20 @@
       "path": "polly.ratelimiting/8.4.2",
       "hashPath": "polly.ratelimiting.8.4.2.nupkg.sha512"
     },
+    "Salaros.ConfigParser/0.3.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-50XCtLlCTzW0SV2yFQmrikeLJ1EjRjNAcaHOQI6bIMbO2jALjgf1y+1vBsldWhJ3lPqPVV+s+q+ox3wzKh+OHQ==",
+      "path": "salaros.configparser/0.3.2",
+      "hashPath": "salaros.configparser.0.3.2.nupkg.sha512"
+    },
+    "Scalar.AspNetCore/2.11.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JIHWLVSiJF6FIfRGA7Pc9Bj45rrnolgFTS7yJ09MndMhmDl+Iq5X1UV3O8lLEyoXVLbD2AWJV3NXZxRH7v4zMw==",
+      "path": "scalar.aspnetcore/2.11.8",
+      "hashPath": "scalar.aspnetcore.2.11.8.nupkg.sha512"
+    },
     "SonarAnalyzer.CSharp/10.16.1.129956": {
       "type": "package",
       "serviceable": true,
@@ -615,6 +713,13 @@
       "sha512": "sha512-7mu9v0QDv66ar3DpGSZHg9NuNcxDaaAcnMULuZlaTpP9+hwXhrxNGsF5GmLkSHxFdb5bBc1TzeujsRgTrPWi+Q==",
       "path": "system.threading.ratelimiting/8.0.0",
       "hashPath": "system.threading.ratelimiting.8.0.0.nupkg.sha512"
+    },
+    "WakaTime/8.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fk+AxpNp+ViyS+4pNdXzS8RSdrSl1WkY/+dbzbU+bxQXTfr2eyARHCT2gx/Iy9w+8pN4+VAAqka+CoA8zjYh2A==",
+      "path": "wakatime/8.1.11",
+      "hashPath": "wakatime.8.1.11.nupkg.sha512"
     },
     "TrueCounsel.Domain/1.0.0": {
       "type": "project",

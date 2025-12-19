@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TrueCounsel.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd6687e689e841320c7ae82c7fdb16ba10cd4347")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd1a3f4a05ffabadb4ab3d92cd8e6b35fb715ba7")]
 [assembly: System.Reflection.AssemblyProductAttribute("TrueCounsel.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TrueCounsel.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "40Us35Hv0CU=",
+  "dgSpecHash": "F5ib9In3Kug=",
   "success": true,
   "projectFilePath": "C:\\Users\\sudip\\source\\repos\\TrueCounsel\\tests\\TrueCounsel.Infrastructure.IntegrationTests\\TrueCounsel.Infrastructure.IntegrationTests.csproj",
   "expectedPackageFiles": [
@@ -46,6 +46,7 @@
     "C:\\Users\\sudip\\.nuget\\packages\\polly.core\\8.4.2\\polly.core.8.4.2.nupkg.sha512",
     "C:\\Users\\sudip\\.nuget\\packages\\polly.extensions\\8.4.2\\polly.extensions.8.4.2.nupkg.sha512",
     "C:\\Users\\sudip\\.nuget\\packages\\polly.ratelimiting\\8.4.2\\polly.ratelimiting.8.4.2.nupkg.sha512",
+    "C:\\Users\\sudip\\.nuget\\packages\\sonaranalyzer.csharp\\10.16.1.129956\\sonaranalyzer.csharp.10.16.1.129956.nupkg.sha512",
     "C:\\Users\\sudip\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.0\\system.configuration.configurationmanager.4.4.0.nupkg.sha512",
     "C:\\Users\\sudip\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512",
     "C:\\Users\\sudip\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.4.0\\system.security.cryptography.protecteddata.4.4.0.nupkg.sha512",

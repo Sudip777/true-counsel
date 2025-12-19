@@ -40,7 +40,6 @@
           }
         },
         "warningProperties": {
-          "allWarningsAsErrors": true,
           "warnAsError": [
             "NU1605"
           ]
@@ -56,9 +55,19 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[9.0.11, )",
+              "versionCentrallyManaged": true
+            },
             "Microsoft.Extensions.Http.Resilience": {
               "target": "Package",
               "version": "[10.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Scalar.AspNetCore": {
+              "target": "Package",
+              "version": "[2.11.8, )",
               "versionCentrallyManaged": true
             },
             "SonarAnalyzer.CSharp": {
@@ -67,11 +76,18 @@
               "target": "Package",
               "version": "[10.16.1.129956, )",
               "versionCentrallyManaged": true
+            },
+            "WakaTime": {
+              "target": "Package",
+              "version": "[8.1.11, )",
+              "versionCentrallyManaged": true
             }
           },
           "centralPackageVersions": {
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.1",
+            "Konscious.Security.Cryptography.Argon2": "1.3.1",
+            "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.11",
             "Microsoft.AspNetCore.Mvc.Testing": "8.0.11",
             "Microsoft.AspNetCore.OpenApi": "9.0.11",
             "Microsoft.EntityFrameworkCore.Design": "9.0.11",
@@ -80,8 +96,11 @@
             "Microsoft.EntityFrameworkCore.Tools": "9.0.11",
             "Microsoft.Extensions.Http.Resilience": "10.0.0",
             "Microsoft.NET.Test.Sdk": "17.11.1",
+            "Microsoft.OpenApi": "3.1.1",
             "Moq": "4.20.72",
+            "Scalar.AspNetCore": "2.11.8",
             "SonarAnalyzer.CSharp": "10.16.1.129956",
+            "WakaTime": "8.1.11",
             "xunit": "2.9.2",
             "xunit.runner.visualstudio": "2.8.2"
           },
@@ -137,7 +156,6 @@
           }
         },
         "warningProperties": {
-          "allWarningsAsErrors": true,
           "warnAsError": [
             "NU1605"
           ]
@@ -164,11 +182,18 @@
               "target": "Package",
               "version": "[10.16.1.129956, )",
               "versionCentrallyManaged": true
+            },
+            "WakaTime": {
+              "target": "Package",
+              "version": "[8.1.11, )",
+              "versionCentrallyManaged": true
             }
           },
           "centralPackageVersions": {
             "coverlet.collector": "6.0.2",
             "FluentAssertions": "6.12.1",
+            "Konscious.Security.Cryptography.Argon2": "1.3.1",
+            "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.11",
             "Microsoft.AspNetCore.Mvc.Testing": "8.0.11",
             "Microsoft.AspNetCore.OpenApi": "9.0.11",
             "Microsoft.EntityFrameworkCore.Design": "9.0.11",
@@ -177,8 +202,11 @@
             "Microsoft.EntityFrameworkCore.Tools": "9.0.11",
             "Microsoft.Extensions.Http.Resilience": "10.0.0",
             "Microsoft.NET.Test.Sdk": "17.11.1",
+            "Microsoft.OpenApi": "3.1.1",
             "Moq": "4.20.72",
+            "Scalar.AspNetCore": "2.11.8",
             "SonarAnalyzer.CSharp": "10.16.1.129956",
+            "WakaTime": "8.1.11",
             "xunit": "2.9.2",
             "xunit.runner.visualstudio": "2.8.2"
           },
