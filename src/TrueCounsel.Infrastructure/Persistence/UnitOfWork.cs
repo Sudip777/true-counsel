@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using TrueCounsel.Application.Common.Abstractions;
+using TrueCounsel.Domain.Interfaces;
 
 namespace TrueCounsel.Infrastructure.Data
 {
@@ -8,16 +8,24 @@ namespace TrueCounsel.Infrastructure.Data
     {
         private readonly ApplicationDbContext _dbContext;
         private readonly IUserRepository _userRepository;
+        private readonly ILawyerRepository _lawyerRepository;
+        private readonly IRefreshTokenRepository _refreshTokenRepository;
       
-        //Exposes the UserRepository to the Application layer via the interface property from IUnitOfWork.
         public IUserRepository UserRepository => _userRepository;
+        /// <summary> lawer repositry instance </summary>
+        public ILawyerRepository LawyerRepository => _lawyerRepository;
+        public IRefreshTokenRepository RefreshTokenRepository => _refreshTokenRepository;
 
         public UnitOfWork(
            ApplicationDbContext context,
-           IUserRepository userRepository)
+           IUserRepository userRepository,
+           ILawyerRepository lawyerRepository,
+           IRefreshTokenRepository refreshTokenRepository)
         {
             _dbContext = context;
             _userRepository = userRepository;
+            _lawyerRepository = lawyerRepository;
+            _refreshTokenRepository = refreshTokenRepository;
         }
 
         public Task CommitAsync()
@@ -25,5 +33,4 @@ namespace TrueCounsel.Infrastructure.Data
                 return _dbContext.SaveChangesAsync();
         }
     }
-
 }

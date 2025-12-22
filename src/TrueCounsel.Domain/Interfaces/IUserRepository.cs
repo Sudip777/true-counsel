@@ -1,13 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using TrueCounsel.Application.Common.Models;
-using TrueCounsel.Application.Features.Auth.Dtos;
 using TrueCounsel.Domain.Entities;
 
-namespace TrueCounsel.Application.Common.Abstractions
+namespace TrueCounsel.Domain.Interfaces
 {
     public interface IUserRepository
     {
