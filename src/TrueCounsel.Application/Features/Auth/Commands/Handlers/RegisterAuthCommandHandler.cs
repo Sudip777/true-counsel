@@ -1,46 +1,45 @@
-﻿using System;
+﻿// RegisterAuthCommandHandler.cs
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using TrueCounsel.Application.Common.Abstractions;
+using TrueCounsel.Application.Features.Auth.Commands;
 using TrueCounsel.Domain.Entities;
 
-namespace TrueCounsel.Application.Features.Auth.Commands.Handlers
+public class RegisterAuthCommandHandler : ICommandHandler<RegisterAuthCommand, User>
 {
-    public class RegisterAuthCommandHandler
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly IPasswordHasher _passwordHasher;
+
+    public RegisterAuthCommandHandler(
+        IUnitOfWork unitOfWork,
+        IPasswordHasher passwordHasher)
     {
+        _unitOfWork = unitOfWork;
+        _passwordHasher = passwordHasher;
+    }
 
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IPasswordHasher _passwordHasher;
+    public async Task<User> HandleAsync(
+        RegisterAuthCommand command,
+        CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(command);
 
+        var existingUser = await _unitOfWork.UserRepository.GetByEmailAsync(command.Email);
+        if (existingUser is not null)
+            throw new InvalidOperationException("Email is already in use.");
 
-        public RegisterAuthCommandHandler(IUnitOfWork unitOfWork, IPasswordHasher password)
+        var newUser = new User
         {
-            _unitOfWork = unitOfWork;
-            _passwordHasher = password;
-        }
+            Name = command.Name,
+            Email = command.Email,
+            PasswordHash = _passwordHasher.HashPassword(command.Password),
+            CreatedAt = DateTime.UtcNow
+        };
 
-        public async Task RegisterAsync(RegisterAuthCommand command, IPasswordHasher passwordHasher, CancellationToken cancellationToken = default)
-        {
-            ArgumentNullException.ThrowIfNull(command);
+        await _unitOfWork.UserRepository.AddAsync(newUser);
+        await _unitOfWork.CommitAsync();
 
-
-            var existingUser = await _unitOfWork.UserRepository.GetByEmailAsync(command.Email).ConfigureAwait(false);
-            if (existingUser != null)
-            {
-                throw new InvalidOperationException("Email is already in use");
-            }
-
-
-            var newUser = new User
-            {
-                Name = command.Name,
-                Email = command.Email,
-                PasswordHash = _passwordHasher.HashPassword(command.Password),
-
-
-            };
-            await _unitOfWork.UserRepository.AddAsync(newUser).ConfigureAwait(false);
-            await _unitOfWork.CommitAsync().ConfigureAwait(false);                                                                                                                                                                          
-        }                                                                                       
+        return newUser;
     }
 }

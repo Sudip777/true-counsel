@@ -8,15 +8,18 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Scalar.AspNetCore;
+using System.Text;
 using System.Threading.Tasks;
 using TrueCounsel.API.Middlewares;
 using TrueCounsel.Application.Common.Abstractions;
+using TrueCounsel.Application.Features.Auth.Commands;
+using TrueCounsel.Application.Features.Auth.Commands.Handlers;
+using TrueCounsel.Application.Features.Auth.Dtos;
+using TrueCounsel.Domain.Entities;
 using TrueCounsel.Infrastructure;
 using TrueCounsel.Infrastructure.Data;
+using TrueCounsel.Infrastructure.Data.Repositories;
 using TrueCounsel.Infrastructure.Persistence.Security;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -64,11 +67,16 @@ builder.Services.AddOpenApi(options =>
 builder.Services.AddHttpContextAccessor();
 builder.Logging.AddConsole();
 builder.Logging.AddDebug();
-
 // Register your services
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
+builder.Services.AddScoped<ICommandHandler<RegisterAuthCommand, User>, RegisterAuthCommandHandler>();
+builder.Services.AddScoped<ICommandHandler<LoginCommand, LoginResponseDto>, LoginCommandHandler>();
 builder.Services.AddInfrastructure();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+
 // JWT Authentication
 var key = Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]);
 
@@ -96,8 +104,7 @@ builder.Services.AddAuthorization();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// If you have controllers, add this (highly recommended for real APIs)
-builder.Services.AddControllers();  // <-- Add this if using [ApiController] classes
+builder.Services.AddControllers(); 
 
 // Configuration loading (move this earlier if needed, but it's fine here too)
 builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -117,8 +124,7 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// If using controllers
-app.MapControllers();  // <-- Add this if you added AddControllers()
+app.MapControllers();  
 
 // Scalar only in development
 if (app.Environment.IsDevelopment())
