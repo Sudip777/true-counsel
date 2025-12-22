@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TrueCounsel.Application.Common.Abstractions;
+using TrueCounsel.Domain.Interfaces;
 using TrueCounsel.Domain.Entities;
 
 namespace TrueCounsel.Infrastructure.Data.Repositories
@@ -54,7 +54,6 @@ namespace TrueCounsel.Infrastructure.Data.Repositories
                 return false;
             }
             _dbContext.Users.Remove(user);
-            await _dbContext.SaveChangesAsync().ConfigureAwait(false);
             return true;
         }
 

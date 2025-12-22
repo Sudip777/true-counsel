@@ -24,6 +24,8 @@ public class ApplicationDbContext : DbContext
     public DbSet<CaseNote> CaseNotes => Set<CaseNote>();
     public DbSet<CaseParty> CaseParties => Set<CaseParty>();
     public DbSet<CaseStatusHistory> CaseStatusHistories => Set<CaseStatusHistory>();
+    /// <summary> stors users refresh tokens </summary>
+    public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
