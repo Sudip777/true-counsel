@@ -10,6 +10,7 @@ namespace TrueCounsel.API.Controllers.V1
 {
     [ApiController]
     [Route("api/v1/[controller]")]
+    
     public class LawyerController : ControllerBase
     {
         private readonly ICommandHandler<RegisterLawyerCommand, LawyerDto> _registerHandler;
@@ -40,7 +41,7 @@ namespace TrueCounsel.API.Controllers.V1
             return Ok(result);
         }
 
-        /// <summary> Gets a lawyer by id (nullable) </summary>
+        /// <summary> Gets a lawyer by id  </summary>
         [HttpGet("{id}", Name = "GetLawyerById")]
         public async Task<IActionResult> GetById(int id)
         {

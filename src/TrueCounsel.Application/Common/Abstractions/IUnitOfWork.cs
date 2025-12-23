@@ -10,6 +10,8 @@ namespace TrueCounsel.Application.Common.Abstractions
         /// Exposes the LawerRepo to app layer
         /// </summary>
         ILawyerRepository LawyerRepository { get; }
+        IClientRepository ClientRepository { get; }
+
         IRefreshTokenRepository RefreshTokenRepository { get; }
         /// <summary>
         /// Commits all changes in a single transaction.

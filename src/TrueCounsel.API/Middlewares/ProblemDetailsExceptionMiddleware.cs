@@ -26,6 +26,7 @@ namespace TrueCounsel.API.Middlewares
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "An unhandled exception occurred.");
                 await HandleExceptionAsync(context, ex).ConfigureAwait(false);
             }
         }
@@ -40,8 +41,14 @@ namespace TrueCounsel.API.Middlewares
                 Detail = exception.Message,
                 Instance = context.Request.Path
             };
-
-            // ... exception switch-case (unchanged)
+            if (exception is AppValidationException validationException)
+            {
+                problem.Status = StatusCodes.Status400BadRequest;
+                problem.Title = "Validation Error";
+                problem.Detail = "One or more validation errors occurred.";
+                problem.Extensions.Add("errors", validationException.Errors);
+            }
+           
 
             context.Response.ContentType = "application/problem+json";
             context.Response.StatusCode = problem.Status ?? 500;

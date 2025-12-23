@@ -20,7 +20,7 @@ namespace TrueCounsel.Infrastructure.Persistence.Repositories
              await _dbContext.RefreshTokens.AddAsync(refreshToken).ConfigureAwait(false);
         }
 
-        /// <summary> findz token by string val </summary>
+        /// <summary> find token by string val </summary>
         public async Task<RefreshToken?> GetByTokenAsync(string token)
         {
              return await _dbContext.RefreshTokens.FirstOrDefaultAsync(rt => rt.Token == token).ConfigureAwait(false);

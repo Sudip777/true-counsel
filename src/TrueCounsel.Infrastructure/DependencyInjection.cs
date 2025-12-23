@@ -12,6 +12,11 @@ using TrueCounsel.Application.Features.Lawyer.Commands.Handlers;
 using TrueCounsel.Application.Features.Lawyer.Dtos;
 using TrueCounsel.Application.Features.Lawyer.Queries;
 using TrueCounsel.Application.Features.Lawyer.Queries.Handlers;
+using TrueCounsel.Application.Features.Client.Commands;
+using TrueCounsel.Application.Features.Client.Commands.Handlers;
+using TrueCounsel.Application.Features.Client.Dtos;
+using TrueCounsel.Application.Features.Client.Queries;
+using TrueCounsel.Application.Features.Client.Queries.Handlers;
 using TrueCounsel.Application.Common.Models;
 using TrueCounsel.Application.Common.Abstractions;
 using TrueCounsel.Domain.Interfaces;
@@ -37,6 +42,7 @@ namespace TrueCounsel.Infrastructure
             // Repositories
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ILawyerRepository, LawyerRepository>();
+            services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
