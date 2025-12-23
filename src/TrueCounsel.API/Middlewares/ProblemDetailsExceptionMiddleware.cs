@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Text.Json;
 using System.Threading.Tasks;
+using TrueCounsel.Application.Common.Exceptions;
 
 namespace TrueCounsel.API.Middlewares
 {

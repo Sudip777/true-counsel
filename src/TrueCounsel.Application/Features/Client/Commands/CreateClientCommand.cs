@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using System;
 using TrueCounsel.Application.Features.Client.Dtos;
 
 namespace TrueCounsel.Application.Features.Client.Commands
