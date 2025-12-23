@@ -2,6 +2,8 @@ using AutoMapper;
 using TrueCounsel.Application.Common.Models;
 using TrueCounsel.Application.Features.Auth.Commands;
 using TrueCounsel.Application.Features.Auth.Dtos;
+using TrueCounsel.Application.Features.Client.Commands;
+using TrueCounsel.Application.Features.Client.Dtos;
 using TrueCounsel.Application.Features.Lawyer.Commands;
 using TrueCounsel.Application.Features.Lawyer.Dtos;
 using TrueCounsel.Domain.Entities;
@@ -20,10 +22,14 @@ namespace TrueCounsel.Application.Common.Mappings
             CreateMap<User, UserDto>();
 
             // Lawyer
-            CreateMap<RegisterLawyerCommand, TrueCounsel.Domain.Entities.Lawyer>();
-            CreateMap<UpdateLawyerCommand, TrueCounsel.Domain.Entities.Lawyer>();
+            CreateMap<RegisterLawyerCommand, Lawyer>();
+            CreateMap<UpdateLawyerCommand, Lawyer>();
+            CreateMap<Lawyer, LawyerDto>();
 
-            CreateMap<TrueCounsel.Domain.Entities.Lawyer, LawyerDto>();
+            // Client
+            CreateMap<CreateClientCommand, Client>();
+            CreateMap<UpdateClientCommand, Client>();
+            CreateMap<Client, ClientDto>();
         }
     }
 }

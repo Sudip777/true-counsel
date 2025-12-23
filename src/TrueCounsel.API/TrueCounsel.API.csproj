@@ -1,5 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <ItemGroup>
+    <Compile Remove="Controllers\V1\**" />
+    <Content Remove="Controllers\V1\**" />
+    <EmbeddedResource Remove="Controllers\V1\**" />
+    <None Remove="Controllers\V1\**" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
       <PrivateAssets>all</PrivateAssets>
@@ -17,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\V1\UserController\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
 
