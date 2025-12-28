@@ -1,13 +1,10 @@
-﻿using System;
+﻿using MediatR;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using TrueCounsel.Application.Features.CaseType.Dtos;
 
 namespace TrueCounsel.Application.Features.CaseType.Queries
 {
-    public class GetAllCaseTypeQuery
+    public class GetAllCaseTypeQuery : IRequest<IEnumerable<CaseTypeDto>>
     {
-
     }
 }

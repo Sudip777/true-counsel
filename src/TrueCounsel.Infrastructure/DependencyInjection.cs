@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 using TrueCounsel.Application.Features.Auth.Commands;
 using TrueCounsel.Application.Features.Auth.Commands.Handlers;
 using TrueCounsel.Application.Features.Auth.Dtos;
+using TrueCounsel.Application.Features.CaseType.Commands;
+using TrueCounsel.Application.Features.CaseType.Commands.Handlers;
+using TrueCounsel.Application.Features.CaseType.Dtos;
+using TrueCounsel.Application.Features.CaseType.Queries;
+using TrueCounsel.Application.Features.CaseType.Queries.Handlers;
 using TrueCounsel.Application.Features.Lawyer.Commands;
 using TrueCounsel.Application.Features.Lawyer.Commands.Handlers;
 using TrueCounsel.Application.Features.Lawyer.Dtos;
@@ -44,6 +49,7 @@ namespace TrueCounsel.Infrastructure
             services.AddScoped<ILawyerRepository, LawyerRepository>();
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+            services.AddScoped<ICaseTypeRepository, CaseTypeRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -58,6 +64,10 @@ namespace TrueCounsel.Infrastructure
 
             services.AddScoped<IQueryHandler<GetAllLawyersQuery, IEnumerable<LawyerDto>>, GetAllLawyersHandler>();
             services.AddScoped<IQueryHandler<GetLawyerByIdQuery, LawyerDto?>, GetLawyerByIdHandler>();
+
+            // CaseType Handlers
+            services.AddScoped<IRequestHandler<CreateCaseTypeCommand, CaseTypeDto>, CreateCaseTypeHandler>();
+            services.AddScoped<IRequestHandler<GetAllCaseTypeQuery, IEnumerable<CaseTypeDto>>, GetAllCaseTypeHandler>();
 
             return services;
         }

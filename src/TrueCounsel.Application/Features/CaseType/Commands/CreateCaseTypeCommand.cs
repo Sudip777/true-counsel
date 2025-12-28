@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TrueCounsel.Application.Features.CaseType.Commands
+﻿namespace TrueCounsel.Application.Features.CaseType.Commands
 {
-    public class CreateCaseTypeCommand
+    public class CreateCaseTypeCommand : IRequest<CaseTypeDto>
     {
-
         public required string Name { get; set; }
-        public string Description { get; set; } = String.Empty;
-
+        public string? Description { get; set; }
     }
 }
