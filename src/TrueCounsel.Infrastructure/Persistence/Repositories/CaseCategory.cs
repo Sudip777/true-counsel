@@ -1,28 +1,41 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TrueCounsel.Domain.Entities;
 using TrueCounsel.Domain.Interfaces;
+using TrueCounsel.Infrastructure.Data;
 
 namespace TrueCounsel.Infrastructure.Persistence.Repositories
 {
     public class CaseCategory : ICaseCategory
     {
-        public Task AddAsync(Domain.Entities.CaseCategory caseCategory)
+        private readonly ApplicationDbContext _dbContext;
+
+        public CaseCategory(ApplicationDbContext dbContext)
         {
-            throw new NotImplementedException();
+            _dbContext = dbContext;
         }
 
-        public Task<IEnumerable<Domain.Entities.CaseCategory>> GetAllAsync()
+        public async Task<IEnumerable<Domain.Entities.CaseCategory>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _dbContext.CaseCategories
+                .Include(c => c.CaseType)
+                .AsNoTracking()
+                .ToListAsync();
         }
 
-        public Task<Domain.Entities.CaseCategory> GetByIdAsync(int id)
+        public async Task<Domain.Entities.CaseCategory> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _dbContext.CaseCategories
+                .Include(c => c.CaseType)
+                .FirstOrDefaultAsync(c => c.Id == id);
+        }
+
+        public async Task AddAsync(Domain.Entities.CaseCategory caseCategory)
+        {
+            await _dbContext.CaseCategories.AddAsync(caseCategory);
+            await _dbContext.SaveChangesAsync();
         }
     }
 }
+

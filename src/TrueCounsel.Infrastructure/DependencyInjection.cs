@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 using TrueCounsel.Application.Features.Auth.Commands;
 using TrueCounsel.Application.Features.Auth.Commands.Handlers;
 using TrueCounsel.Application.Features.Auth.Dtos;
+using TrueCounsel.Application.Features.CaseCategory.Commands;
+using TrueCounsel.Application.Features.CaseCategory.Commands.Handlers;
+using TrueCounsel.Application.Features.CaseCategory.Dtos;
+using TrueCounsel.Application.Features.CaseCategory.Queries;
+using TrueCounsel.Application.Features.CaseCategory.Queries.Handlers;
 using TrueCounsel.Application.Features.CaseType.Commands;
 using TrueCounsel.Application.Features.CaseType.Commands.Handlers;
 using TrueCounsel.Application.Features.CaseType.Dtos;
@@ -50,6 +55,7 @@ namespace TrueCounsel.Infrastructure
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
             services.AddScoped<ICaseTypeRepository, CaseTypeRepository>();
+            services.AddScoped<ICaseCategory, CaseCategory>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -68,7 +74,11 @@ namespace TrueCounsel.Infrastructure
             // CaseType Handlers
             services.AddScoped<IRequestHandler<CreateCaseTypeCommand, CaseTypeDto>, CreateCaseTypeHandler>();
             services.AddScoped<IRequestHandler<GetAllCaseTypeQuery, IEnumerable<CaseTypeDto>>, GetAllCaseTypeHandler>();
+// CaseCategory Handlers
+            services.AddScoped<IRequestHandler<CreateCaseCategoryCommand, CaseCategoryDto>, CreateCaseCategoryHandler>();
+            services.AddScoped<IRequestHandler<GetAllCaseCategoryQuery, IEnumerable<CaseCategoryDto>>, GetAllCaseCategoryHandler>();
 
+            
             return services;
         }
     }
