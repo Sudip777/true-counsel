@@ -7,14 +7,16 @@ namespace TrueCounsel.Application.Common.Abstractions
     {
         IUserRepository UserRepository { get; }
         /// <summary>
-        /// Exposes the LawerRepo to app layer
+        /// Exposes the LawyerRepository to app layer
         /// </summary>
         ILawyerRepository LawyerRepository { get; }
         IClientRepository ClientRepository { get; }
+        ICourtRepository CourtRepository { get; }
 
         IRefreshTokenRepository RefreshTokenRepository { get; }
         /// <summary>
         /// Commits all changes in a single transaction.
+        /// Ensures transactional consistency across all repository operations.
         /// </summary>
         Task CommitAsync();
 

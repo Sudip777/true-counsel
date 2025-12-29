@@ -8,6 +8,8 @@ using TrueCounsel.Application.Features.CaseType.Commands;
 using TrueCounsel.Application.Features.CaseType.Dtos;
 using TrueCounsel.Application.Features.Client.Commands;
 using TrueCounsel.Application.Features.Client.Dtos;
+using TrueCounsel.Application.Features.Court.Commands;
+using TrueCounsel.Application.Features.Court.Dtos;
 using TrueCounsel.Application.Features.Lawyer.Commands;
 using TrueCounsel.Application.Features.Lawyer.Dtos;
 using TrueCounsel.Domain.Entities;
@@ -42,6 +44,9 @@ namespace TrueCounsel.Application.Common.Mappings
             // CaseCategory
             CreateMap<CreateCaseCategoryCommand, CaseCategory>();
             CreateMap<CaseCategory, CaseCategoryDto>();
+
+            // Court
+            CreateMap<Court, CourtDto>();
         }
     }
 }
