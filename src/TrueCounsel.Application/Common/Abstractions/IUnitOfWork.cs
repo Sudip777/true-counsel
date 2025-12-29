@@ -12,6 +12,7 @@ namespace TrueCounsel.Application.Common.Abstractions
         ILawyerRepository LawyerRepository { get; }
         IClientRepository ClientRepository { get; }
         ICourtRepository CourtRepository { get; }
+        ICasePartyRepository CasePartyRepository { get; }
 
         IRefreshTokenRepository RefreshTokenRepository { get; }
         /// <summary>
