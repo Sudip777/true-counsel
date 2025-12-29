@@ -4,6 +4,8 @@ using TrueCounsel.Application.Features.Auth.Commands;
 using TrueCounsel.Application.Features.Auth.Dtos;
 using TrueCounsel.Application.Features.CaseCategory.Commands;
 using TrueCounsel.Application.Features.CaseCategory.Dtos;
+using TrueCounsel.Application.Features.CaseParty.Commands;
+using TrueCounsel.Application.Features.CaseParty.Dtos;
 using TrueCounsel.Application.Features.CaseType.Commands;
 using TrueCounsel.Application.Features.CaseType.Dtos;
 using TrueCounsel.Application.Features.Client.Commands;
@@ -45,8 +47,18 @@ namespace TrueCounsel.Application.Common.Mappings
             CreateMap<CreateCaseCategoryCommand, CaseCategory>();
             CreateMap<CaseCategory, CaseCategoryDto>();
 
+            // CaseParty
+            CreateMap<CreateCasePartyCommand, CaseParty>();
+            CreateMap<UpdateCasePartyCommand, CaseParty>();
+            CreateMap<CaseParty, CasePartyDto>();
+
             // Court
             CreateMap<Court, CourtDto>();
+
+            // CaseParty
+            CreateMap<CreateCasePartyCommand, CaseParty>();
+            CreateMap<UpdateCasePartyCommand, CaseParty>();
+            CreateMap<CaseParty, CasePartyDto>();
         }
     }
 }

@@ -35,6 +35,11 @@ using TrueCounsel.Application.Features.Court.Commands.Handlers;
 using TrueCounsel.Application.Features.Court.Dtos;
 using TrueCounsel.Application.Features.Court.Queries;
 using TrueCounsel.Application.Features.Court.Queries.Handlers;
+using TrueCounsel.Application.Features.CaseParty.Commands;
+using TrueCounsel.Application.Features.CaseParty.Commands.Handlers;
+using TrueCounsel.Application.Features.CaseParty.Dtos;
+using TrueCounsel.Application.Features.CaseParty.Queries;
+using TrueCounsel.Application.Features.CaseParty.Queries.Handlers;
 using TrueCounsel.Application.Common.Models;
 using TrueCounsel.Application.Common.Abstractions;
 using TrueCounsel.Domain.Interfaces;
@@ -63,6 +68,7 @@ namespace TrueCounsel.Infrastructure
             services.AddScoped<ILawyerRepository, LawyerRepository>();
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<ICourtRepository, CourtRepository>();
+            services.AddScoped<ICasePartyRepository, CasePartyRepository>();
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
             services.AddScoped<ICaseTypeRepository, CaseTypeRepository>();
             services.AddScoped<ICaseCategory, CaseCategory>();
@@ -99,6 +105,14 @@ namespace TrueCounsel.Infrastructure
             services.AddScoped<IRequestHandler<CreateCourtCommand, CourtDto>, CreateCourtHandler>();
             services.AddScoped<IRequestHandler<UpdateCourtCommand, CourtDto>, UpdateCourtHandler>();
             services.AddScoped<IRequestHandler<DeleteCourtCommand, bool>, DeleteCourtHandler>();
+
+            // CaseParty Handlers
+            services.AddScoped<IRequestHandler<GetAllCasePartiesQuery, IEnumerable<CasePartyDto>>, GetAllCasePartiesHandler>();
+            services.AddScoped<IRequestHandler<GetCasePartyByIdQuery, CasePartyDto?>, GetCasePartyByIdHandler>();
+            services.AddScoped<IRequestHandler<GetCasePartiesByCaseIdQuery, IEnumerable<CasePartyDto>>, GetCasePartiesByCaseIdHandler>();
+            services.AddScoped<IRequestHandler<CreateCasePartyCommand, CasePartyDto>, CreateCasePartyHandler>();
+            services.AddScoped<IRequestHandler<UpdateCasePartyCommand, CasePartyDto>, UpdateCasePartyHandler>();
+            services.AddScoped<IRequestHandler<DeleteCasePartyCommand, bool>, DeleteCasePartyHandler>();
 
             return services;
         }
