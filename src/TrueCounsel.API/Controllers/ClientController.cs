@@ -26,7 +26,7 @@ namespace TrueCounsel.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{id}", Name = nameof(GetById))]
+        [HttpGet("{id}", Name = "GetClientById")]
         public async Task<IActionResult> GetById(int id)
         {
             var result = await _mediator.Send(new GetClientByIdQuery(id));

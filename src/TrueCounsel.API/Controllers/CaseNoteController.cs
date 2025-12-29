@@ -26,7 +26,7 @@ namespace TrueCounsel.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{id}", Name = nameof(GetById))]
+        [HttpGet("{id}", Name = "GetCaseNoteById")]
         public async Task<IActionResult> GetById(int id)
         {
             var result = await _mediator.Send(new GetCaseNoteByIdQuery(id));
@@ -42,7 +42,7 @@ namespace TrueCounsel.API.Controllers
                 return BadRequest("Request cannot be null");
 
             var result = await _mediator.Send(request);
-            return CreatedAtRoute(nameof(GetById), new { id = result.Id }, result);
+            return CreatedAtRoute("GetCaseNoteById", new { id = result.Id }, result);
         }
 
         [HttpDelete("{id}")]
