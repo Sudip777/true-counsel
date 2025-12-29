@@ -30,6 +30,11 @@ using TrueCounsel.Application.Features.Client.Queries.Handlers;
 using TrueCounsel.Application.Features.CaseNote.Commands;
 using TrueCounsel.Application.Features.CaseNote.Commands.Handlers;
 using TrueCounsel.Application.Features.CaseNote.Dtos;
+using TrueCounsel.Application.Features.Court.Commands;
+using TrueCounsel.Application.Features.Court.Commands.Handlers;
+using TrueCounsel.Application.Features.Court.Dtos;
+using TrueCounsel.Application.Features.Court.Queries;
+using TrueCounsel.Application.Features.Court.Queries.Handlers;
 using TrueCounsel.Application.Common.Models;
 using TrueCounsel.Application.Common.Abstractions;
 using TrueCounsel.Domain.Interfaces;
@@ -57,6 +62,7 @@ namespace TrueCounsel.Infrastructure
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ILawyerRepository, LawyerRepository>();
             services.AddScoped<IClientRepository, ClientRepository>();
+            services.AddScoped<ICourtRepository, CourtRepository>();
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
             services.AddScoped<ICaseTypeRepository, CaseTypeRepository>();
             services.AddScoped<ICaseCategory, CaseCategory>();
@@ -86,6 +92,13 @@ namespace TrueCounsel.Infrastructure
             // CaseNote Handlers
             services.AddScoped<IRequestHandler<CreateCaseNoteCommand, CaseNoteDto>, CreateCaseNoteHandler>();
             services.AddScoped<IRequestHandler<DeleteCaseNoteCommand, bool>, DeleteCaseNoteHandler>();
+
+            // Court Handlers
+            services.AddScoped<IRequestHandler<GetAllCourtsQuery, IEnumerable<CourtDto>>, GetAllCourtsHandler>();
+            services.AddScoped<IRequestHandler<GetCourtByIdQuery, CourtDto?>, GetCourtByIdHandler>();
+            services.AddScoped<IRequestHandler<CreateCourtCommand, CourtDto>, CreateCourtHandler>();
+            services.AddScoped<IRequestHandler<UpdateCourtCommand, CourtDto>, UpdateCourtHandler>();
+            services.AddScoped<IRequestHandler<DeleteCourtCommand, bool>, DeleteCourtHandler>();
 
             return services;
         }
