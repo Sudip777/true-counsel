@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TrueCounsel.Application.Features.CaseType.Commands;
 using TrueCounsel.Application.Features.CaseType.Dtos;
 using TrueCounsel.Domain.Interfaces;
+using TrueCounsel.Domain.Entities;
 
 namespace TrueCounsel.Application.Features.CaseType.Commands.Handlers
 {
@@ -24,7 +25,7 @@ namespace TrueCounsel.Application.Features.CaseType.Commands.Handlers
         {
             ArgumentNullException.ThrowIfNull(request);
 
-            var caseType = _mapper.Map<CaseType>(request);
+            var caseType = _mapper.Map<TrueCounsel.Domain.Entities.CaseType>(request);
             caseType.CreatedAt = DateTime.UtcNow;
 
             await _caseTypeRepository.AddAsync(caseType);

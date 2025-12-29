@@ -26,7 +26,7 @@ namespace TrueCounsel.Application.Features.Lawyer.Commands.Handlers
             if(command == null) throw new ArgumentNullException(nameof(command));
 
             var user = await _unitOfWork.UserRepository.GetByIdAsync(command.UserId);
-            if (user == null) throw new Exception($"User with id {command.UserId} not found.");
+            if (user == null) throw new ArgumentException($"User with id {command.UserId} not found.", nameof(command.UserId));
 
             var lawyer = _mapper.Map<TrueCounsel.Domain.Entities.Lawyer>(command);
             lawyer.CreatedAt = DateTime.UtcNow;

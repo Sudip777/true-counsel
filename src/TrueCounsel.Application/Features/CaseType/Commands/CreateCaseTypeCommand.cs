@@ -1,4 +1,7 @@
-﻿namespace TrueCounsel.Application.Features.CaseType.Commands
+﻿using MediatR;
+using TrueCounsel.Application.Features.CaseType.Dtos;
+
+namespace TrueCounsel.Application.Features.CaseType.Commands
 {
     public class CreateCaseTypeCommand : IRequest<CaseTypeDto>
     {

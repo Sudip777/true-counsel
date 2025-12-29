@@ -18,9 +18,6 @@ namespace TrueCounsel.Domain.Entities
 
         private readonly List<CaseCategory> _categories = new();
         private readonly List<LegalCase> _cases = new();
-
-
-       
     }
 }
 
