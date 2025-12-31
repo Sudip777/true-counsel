@@ -69,6 +69,7 @@ namespace TrueCounsel.Infrastructure
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<ICourtRepository, CourtRepository>();
             services.AddScoped<ICasePartyRepository, CasePartyRepository>();
+            services.AddScoped<ILegalCaseRepository, LegalCaseRepository>();
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
             services.AddScoped<ICaseTypeRepository, CaseTypeRepository>();
             services.AddScoped<ICaseCategory, CaseCategory>();

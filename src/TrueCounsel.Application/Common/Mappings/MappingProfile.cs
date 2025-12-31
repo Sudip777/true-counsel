@@ -14,6 +14,8 @@ using TrueCounsel.Application.Features.Court.Commands;
 using TrueCounsel.Application.Features.Court.Dtos;
 using TrueCounsel.Application.Features.Lawyer.Commands;
 using TrueCounsel.Application.Features.Lawyer.Dtos;
+using TrueCounsel.Application.Features.LegalCase.Commands;
+using TrueCounsel.Application.Features.LegalCase.Dtos;
 using TrueCounsel.Domain.Entities;
 
 namespace TrueCounsel.Application.Common.Mappings
@@ -59,6 +61,12 @@ namespace TrueCounsel.Application.Common.Mappings
             CreateMap<CreateCasePartyCommand, CaseParty>();
             CreateMap<UpdateCasePartyCommand, CaseParty>();
             CreateMap<CaseParty, CasePartyDto>();
+            CreateMap<CaseParty, CasePartyDto>();
+
+            // LegalCase
+            CreateMap<CreateLegalCaseCommand, LegalCase>();
+            CreateMap<UpdateLegalCaseCommand, LegalCase>();
+            CreateMap<LegalCase, LegalCaseDto>();
         }
     }
 }
