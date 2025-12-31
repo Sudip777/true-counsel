@@ -12,6 +12,7 @@ namespace TrueCounsel.Infrastructure.Data
         private readonly IClientRepository _clientRepository;
         private readonly ICourtRepository _courtRepository;
         private readonly ICasePartyRepository _casePartyRepository;
+        private readonly ILegalCaseRepository _legalCaseRepository;
         private readonly IRefreshTokenRepository _refreshTokenRepository;
       
         public IUserRepository UserRepository => _userRepository;
@@ -19,6 +20,7 @@ namespace TrueCounsel.Infrastructure.Data
         public IClientRepository ClientRepository => _clientRepository;
         public ICourtRepository CourtRepository => _courtRepository;
         public ICasePartyRepository CasePartyRepository => _casePartyRepository;
+        public ILegalCaseRepository LegalCaseRepository => _legalCaseRepository;
         public IRefreshTokenRepository RefreshTokenRepository => _refreshTokenRepository;
 
         public UnitOfWork(
@@ -28,6 +30,7 @@ namespace TrueCounsel.Infrastructure.Data
            IClientRepository clientRepository,
            ICourtRepository courtRepository,
            ICasePartyRepository casePartyRepository,
+           ILegalCaseRepository legalCaseRepository,
            IRefreshTokenRepository refreshTokenRepository)
         {
             _dbContext = context;
@@ -36,6 +39,7 @@ namespace TrueCounsel.Infrastructure.Data
             _clientRepository = clientRepository;
             _courtRepository = courtRepository;
             _casePartyRepository = casePartyRepository;
+            _legalCaseRepository = legalCaseRepository;
             _refreshTokenRepository = refreshTokenRepository;
         }
 

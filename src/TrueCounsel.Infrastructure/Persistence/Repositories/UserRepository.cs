@@ -18,24 +18,24 @@ namespace TrueCounsel.Infrastructure.Data.Repositories
         //I don’t care which thread or context resumes after the await says ConfigureAwait(false)
         public async Task AddAsync(User user)
         {
-            await _dbContext.Users.AddAsync(user).ConfigureAwait(false);
+            await _dbContext.Users.AddAsync(user);
         }
 
 
 
         public async Task<IEnumerable<User>> GetAllAsync()
         {
-            return await _dbContext.Users.ToListAsync().ConfigureAwait(false);
+            return await _dbContext.Users.ToListAsync();
         }
 
         public async Task<User?> GetByEmailAsync(string email)
         {
-            return await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email).ConfigureAwait(false);
+            return await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
 
         public async Task<User?> GetByIdAsync(int id)
         {
-            return await _dbContext.Users.FindAsync(id).ConfigureAwait(false);
+            return await _dbContext.Users.FindAsync(id);
         }
 
         public Task UpdateAsync(User user)
@@ -47,7 +47,7 @@ namespace TrueCounsel.Infrastructure.Data.Repositories
 
         public async Task<bool> DeleteAsync(int id)
         {
-            var user = await _dbContext.Users.FindAsync(id).ConfigureAwait(false);
+            var user = await _dbContext.Users.FindAsync(id);
 
             if (user == null)
             {
