@@ -24,6 +24,7 @@ namespace TrueCounsel.API.Controllers.V1
         /// <summary> Authenticate user </summary>
         [HttpPost("login")]
         [AllowAnonymous]
+        [Microsoft.AspNetCore.RateLimiting.EnableRateLimiting("LoginPolicy")]
         [ProducesResponseType(typeof(LoginResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

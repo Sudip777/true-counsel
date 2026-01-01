@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,6 +10,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Scalar.AspNetCore;
+using System;
+using System.Threading.RateLimiting;
 using System.Text;
 using System.Threading.Tasks;
 using TrueCounsel.API.Middlewares;
@@ -70,11 +73,35 @@ builder.Services.AddOpenApi(options =>
 builder.Services.AddHttpContextAccessor();
 builder.Logging.AddConsole();
 builder.Logging.AddDebug();
+
+// Rate Limiting Configuration
+builder.Services.AddRateLimiter(options =>
+{
+    options.AddPolicy("LoginPolicy", httpContext =>
+        RateLimitPartition.GetFixedWindowLimiter(
+            partitionKey: httpContext.Connection.RemoteIpAddress?.ToString() ?? httpContext.Request.Headers.Host.ToString(),
+            factory: partition => new FixedWindowRateLimiterOptions
+            {
+                AutoReplenishment = true,
+                PermitLimit = 5,
+                Window = TimeSpan.FromMinutes(1),
+                QueueLimit = 0
+            }));
+
+    options.OnRejected = async (context, token) =>
+    {
+        context.HttpContext.Response.StatusCode = StatusCodes.Status429TooManyRequests;
+        await context.HttpContext.Response.WriteAsJsonAsync(new 
+        {
+            Status = 429,
+            Message = "Too many login attempts. Please try again after a minute."
+        }, cancellationToken: token);
+    };
+});
+
 // Register your services
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure();
-
-
 
 // JWT Authentication
 var key = Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]);
@@ -119,6 +146,10 @@ app.MapOpenApi();
 app.UseMiddleware<ProblemDetailsExceptionMiddleware>();
 
 app.UseHttpsRedirection();
+
+// Enable Rate Limiting Middleware
+app.UseRateLimiter();
+
 if (app.Environment.IsDevelopment())
 {
     //Redirect root to Scalar UI
@@ -141,7 +172,5 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();  
-
-
 
 app.Run();
