@@ -6,3 +6,5 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("Major Code Smell", "S6960:Controllers should not have mixed responsibilities", Justification = "<Pending>", Scope = "type", Target = "~T:TrueCounsel.API.Controllers.V1.AuthController.AuthController")]
+[assembly: SuppressMessage("Major Code Smell", "S6966:Awaitable method should be used", Justification = "<Pending>")]
+[assembly: SuppressMessage("Major Code Smell", "S6960:Controllers should not have mixed responsibilities", Justification = "<Pending>", Scope = "type", Target = "~T:TrueCounsel.API.Controllers.V1.LawyerController")]

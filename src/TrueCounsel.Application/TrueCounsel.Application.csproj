@@ -1,6 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
+    <PackageReference Include="MediatR" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
     <PackageReference Include="Microsoft.Extensions.Http.Resilience" />
     <PackageReference Include="Scalar.AspNetCore" />
@@ -14,7 +17,6 @@
 
   <ItemGroup>
     <Folder Include="Common\Behaviors\" />
-    <Folder Include="Common\Exception\" />
     <Folder Include="Features\Auth\Queries\" />
     <Folder Include="Features\CaseCategory\Commands\" />
     <Folder Include="Features\CaseCategory\Dtos\" />
@@ -26,9 +28,7 @@
     <Folder Include="Features\CaseParty\Queries\" />
     <Folder Include="Features\CaseStatusHistory\Commands\" />
     <Folder Include="Features\CaseStatusHistory\Queries\" />
-    <Folder Include="Features\CaseType\Commands\" />
     <Folder Include="Features\CaseType\Dtos\" />
-    <Folder Include="Features\CaseType\Queries\" />
     <Folder Include="Features\Client\Commands\" />
     <Folder Include="Features\Client\Dtos\" />
     <Folder Include="Features\Client\Queries\" />

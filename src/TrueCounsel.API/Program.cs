@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,14 +17,16 @@ using TrueCounsel.Application.Features.Auth.Commands;
 using TrueCounsel.Application.Features.Auth.Commands.Handlers;
 using TrueCounsel.Application.Features.Auth.Dtos;
 using TrueCounsel.Domain.Entities;
+using TrueCounsel.Domain.Interfaces;
 using TrueCounsel.Infrastructure;
+using TrueCounsel.Application;
 using TrueCounsel.Infrastructure.Data;
-using TrueCounsel.Infrastructure.Data.Repositories;
+using TrueCounsel.Infrastructure.Persistence.Repositories;
 using TrueCounsel.Infrastructure.Persistence.Security;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Essential: Add built-in OpenAPI document generation
+// built-in OpenAPI document generation
 builder.Services.AddOpenApi(options =>
 {
     options.AddDocumentTransformer((document, context, cancellationToken) =>
@@ -68,13 +71,9 @@ builder.Services.AddHttpContextAccessor();
 builder.Logging.AddConsole();
 builder.Logging.AddDebug();
 // Register your services
-builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
-builder.Services.AddScoped<ICommandHandler<RegisterAuthCommand, User>, RegisterAuthCommandHandler>();
-builder.Services.AddScoped<ICommandHandler<LoginCommand, LoginResponseDto>, LoginCommandHandler>();
+builder.Services.AddApplication();
 builder.Services.AddInfrastructure();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
+
 
 
 // JWT Authentication
@@ -113,33 +112,36 @@ builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnC
 
 var app = builder.Build();
 
-// Expose the OpenAPI JSON document (required for Scalar to fetch it)
+// Expose the OpenAPI JSON document;;required for Scalar to fetch it
 app.MapOpenApi();
 
 // Global exception middleware
 app.UseMiddleware<ProblemDetailsExceptionMiddleware>();
 
 app.UseHttpsRedirection();
+if (app.Environment.IsDevelopment())
+{
+    //Redirect root to Scalar UI
+    app.MapGet("/", () => Results.Redirect("/scalar/v1")).ExcludeFromDescription();
 
+    //Register Scalar endpoint
+    app.MapScalarApiReference(options =>
+    {
+        options.WithTitle("True Counsel API")
+               .WithTheme(ScalarTheme.BluePlanet) 
+               .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient)
+               .AddPreferredSecuritySchemes("BearerAuth")
+               .AddHttpAuthentication("BearerAuth", auth =>
+               {
+                   auth.Token = ""; 
+               });
+    });
+}
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();  
 
-// Scalar only in development
-if (app.Environment.IsDevelopment())
-{
-    app.MapScalarApiReference(options =>
-    {
-        options.WithTitle("True Counsel Api")
-               .WithTheme(ScalarTheme.BluePlanet)
-               .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient)
-               .AddPreferredSecuritySchemes("BearerAuth")
-               .AddHttpAuthentication("BearerAuth", auth =>
-               {
-                   auth.Token = "";  // Placeholder – user will fill in real token
-               });
-    });
-}
+
 
 app.Run();

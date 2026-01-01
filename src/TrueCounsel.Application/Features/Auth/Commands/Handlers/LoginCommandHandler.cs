@@ -1,109 +1,65 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
-using TrueCounsel.Application.Common.Abstractions;
+using AutoMapper;
+using MediatR;
 using TrueCounsel.Application.Common.Models;
+using TrueCounsel.Application.Features.Auth.Commands;
 using TrueCounsel.Application.Features.Auth.Dtos;
 using TrueCounsel.Domain.Entities;
+using TrueCounsel.Domain.Interfaces;
 
 namespace TrueCounsel.Application.Features.Auth.Commands.Handlers
 {
-    public class LoginCommandHandler : ICommandHandler<LoginCommand, LoginResponseDto>
+    public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginResponseDto>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IPasswordHasher _paswordHasher;
         private readonly IJwtTokenService _jwtTokenService;
+        private readonly IMapper _mapper;
 
-        public LoginCommandHandler(IUnitOfWork unitOfWork, IJwtTokenService jwtTokenService, IPasswordHasher passwordHasher)
+        public LoginCommandHandler(IUnitOfWork unitOfWork, IJwtTokenService jwtTokenService, IPasswordHasher passwordHasher, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _paswordHasher = passwordHasher;
             _jwtTokenService = jwtTokenService;
+            _mapper = mapper;
         }
 
-        public async Task<LoginResponseDto> HandleAsync(LoginCommand command, CancellationToken cancellationToken = default)
+        /// <summary> handls login logic and saves tokin </summary>
+        public async Task<LoginResponseDto> Handle(LoginCommand command, CancellationToken cancellationToken)
         {
-            // Fetch User
-
             ArgumentNullException.ThrowIfNull(command);
-            var user = await _unitOfWork.UserRepository.GetByEmailAsync(command.Email).ConfigureAwait(false);
+            var user = await _unitOfWork.UserRepository.GetByEmailAsync(command.Email);
 
             if (user is null || !user.IsActive)
                 throw new UnauthorizedAccessException("Invalid email or password");
 
-
-            // Verify Password
-
-
-            var isPasswordValid = _paswordHasher
-             .VerifyPassword(command.Password, user.PasswordHash);
+            var isPasswordValid = _paswordHasher.VerifyPassword(command.Password, user.PasswordHash);
 
             if (!isPasswordValid)
                 throw new UnauthorizedAccessException("Invalid email or password");
-            /// Generate Tokens 
-            ///   // 3️⃣ Generate tokens
+
             var access_token = _jwtTokenService.GenerateAccessToken(user);
             var refresh_token = _jwtTokenService.GenerateRefreshToken();
 
-
-            /// Return Response
+            // Store Refresh Token
+            var refreshTokenEntity = new RefreshToken
+            {
+                Token = refresh_token,
+                UserId = user.Id,
+                Expires = DateTime.UtcNow.AddDays(7), 
+                CreatedAt = DateTime.UtcNow
+            };
+            await _unitOfWork.RefreshTokenRepository.AddAsync(refreshTokenEntity);
+            await _unitOfWork.CommitAsync();
 
             return new LoginResponseDto
             {
                 AccessToken = access_token,
                 RefreshToken = refresh_token,
-                User = new UserDto
-                {
-                    Id = user.Id,
-                    Name = user.Name,
-                    Email = user.Email,
-                    ProfilePhotoUrl = user.ProfilePhotoUrl,
-                    Role = user.Role
-                }
+                User = _mapper.Map<UserDto>(user)
             };
         }
-
-        //public async Task<LoginResponseDto> HandleAsyncLogin(LoginCommand command,
-        //    CancellationToken cancellationToken = default)
-        //{
-        //    // Fetch User
-
-        //    ArgumentNullException.ThrowIfNull(command);
-        //    var user = await _unitOfWork.UserRepository.GetByEmailAsync(command.Email).ConfigureAwait(false);
-
-        //    if (user is null || !user.IsActive)
-        //        throw new UnauthorizedAccessException("Invalid email or password");
-        //    // Verify Password
-
-
-        //    var isPasswordValid = _paswordHasher
-        //     .VerifyPassword(command.Password, user.PasswordHash);
-
-        //    if (!isPasswordValid)
-        //        throw new UnauthorizedAccessException("Invalid email or password");
-        //    /// Generate Tokens 
-        //    ///   // 3️⃣ Generate tokens
-        //    var access_token = _jwtTokenService.GenerateAccessToken(user);
-        //    var refresh_token = _jwtTokenService.GenerateRefreshToken();
-
-        //    /// Return Response
-
-        //    return new LoginResponseDto             {
-        //        AccessToken = access_token,
-        //        RefreshToken = refresh_token,
-        //        User = new UserDto
-        //        {
-        //            Id = user.Id,
-        //            Name = user.Name,
-        //            Email = user.Email,
-        //            ProfilePhotoUrl = user.ProfilePhotoUrl,
-        //            Role = user.Role
-        //        }
-        //    };
-        //}
-
-
-
     }
 }

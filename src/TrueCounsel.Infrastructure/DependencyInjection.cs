@@ -4,8 +4,50 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TrueCounsel.Application.Features.Auth.Commands;
+using TrueCounsel.Application.Features.Auth.Commands.Handlers;
+using TrueCounsel.Application.Features.Auth.Dtos;
+using TrueCounsel.Application.Features.CaseCategory.Commands;
+using TrueCounsel.Application.Features.CaseCategory.Commands.Handlers;
+using TrueCounsel.Application.Features.CaseCategory.Dtos;
+using TrueCounsel.Application.Features.CaseCategory.Queries;
+using TrueCounsel.Application.Features.CaseCategory.Queries.Handlers;
+using TrueCounsel.Application.Features.CaseType.Commands;
+using TrueCounsel.Application.Features.CaseType.Commands.Handlers;
+using TrueCounsel.Application.Features.CaseType.Dtos;
+using TrueCounsel.Application.Features.CaseType.Queries;
+using TrueCounsel.Application.Features.CaseType.Queries.Handlers;
+using TrueCounsel.Application.Features.Lawyer.Commands;
+using TrueCounsel.Application.Features.Lawyer.Commands.Handlers;
+using TrueCounsel.Application.Features.Lawyer.Dtos;
+using TrueCounsel.Application.Features.Lawyer.Queries;
+using TrueCounsel.Application.Features.Lawyer.Queries.Handlers;
+using TrueCounsel.Application.Features.Client.Commands;
+using TrueCounsel.Application.Features.Client.Commands.Handlers;
+using TrueCounsel.Application.Features.Client.Dtos;
+using TrueCounsel.Application.Features.Client.Queries;
+using TrueCounsel.Application.Features.Client.Queries.Handlers;
+using TrueCounsel.Application.Features.CaseNote.Commands;
+using TrueCounsel.Application.Features.CaseNote.Commands.Handlers;
+using TrueCounsel.Application.Features.CaseNote.Dtos;
+using TrueCounsel.Application.Features.Court.Commands;
+using TrueCounsel.Application.Features.Court.Commands.Handlers;
+using TrueCounsel.Application.Features.Court.Dtos;
+using TrueCounsel.Application.Features.Court.Queries;
+using TrueCounsel.Application.Features.Court.Queries.Handlers;
+using TrueCounsel.Application.Features.CaseParty.Commands;
+using TrueCounsel.Application.Features.CaseParty.Commands.Handlers;
+using TrueCounsel.Application.Features.CaseParty.Dtos;
+using TrueCounsel.Application.Features.CaseParty.Queries;
+using TrueCounsel.Application.Features.CaseParty.Queries.Handlers;
+using TrueCounsel.Application.Common.Models;
 using TrueCounsel.Application.Common.Abstractions;
+using TrueCounsel.Domain.Interfaces;
+using TrueCounsel.Infrastructure.Data;
+using TrueCounsel.Infrastructure.Data.Repositories;
+using TrueCounsel.Infrastructure.Persistence.Repositories;
 using TrueCounsel.Infrastructure.Persistence.Security;
+using MediatR;
 
 namespace TrueCounsel.Infrastructure
 {
@@ -21,6 +63,24 @@ namespace TrueCounsel.Infrastructure
             services.AddScoped<IJwtTokenService, JwtTokenService>();
             services.AddScoped<IPasswordHasher, PasswordHasher>();
 
+            // Repositories
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ILawyerRepository, LawyerRepository>();
+            services.AddScoped<IClientRepository, ClientRepository>();
+            services.AddScoped<ICourtRepository, CourtRepository>();
+            services.AddScoped<ICasePartyRepository, CasePartyRepository>();
+            services.AddScoped<ILegalCaseRepository, LegalCaseRepository>();
+            services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+            services.AddScoped<ICaseTypeRepository, CaseTypeRepository>();
+            services.AddScoped<ICaseCategory, CaseCategory>();
+            services.AddScoped<ICaseNoteRepository, CaseNoteRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            // Handlers
+            // Handlers are now handled by MediatR assembly scanning in Application.DependencyInjection
+            
             return services;
         }
     }
