@@ -79,42 +79,8 @@ namespace TrueCounsel.Infrastructure
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             // Handlers
-            services.AddScoped<ICommandHandler<LoginCommand, LoginResponseDto>, LoginCommandHandler>();
-            services.AddScoped<ICommandHandler<RegisterAuthCommand, UserDto>, RegisterAuthCommandHandler>();
+            // Handlers are now handled by MediatR assembly scanning in Application.DependencyInjection
             
-            services.AddScoped<ICommandHandler<RegisterLawyerCommand, LawyerDto>, RegisterLawyerHandler>();
-            services.AddScoped<ICommandHandler<UpdateLawyerCommand, LawyerDto>, UpdateLawyerHandler>();
-            services.AddScoped<ICommandHandler<DeleteLawyerCommand, bool>, DeleteLawyerHandler>();
-
-            services.AddScoped<IQueryHandler<GetAllLawyersQuery, IEnumerable<LawyerDto>>, GetAllLawyersHandler>();
-            services.AddScoped<IQueryHandler<GetLawyerByIdQuery, LawyerDto?>, GetLawyerByIdHandler>();
-
-            // CaseType Handlers
-            services.AddScoped<IRequestHandler<CreateCaseTypeCommand, CaseTypeDto>, CreateCaseTypeHandler>();
-            services.AddScoped<IRequestHandler<GetAllCaseTypeQuery, IEnumerable<CaseTypeDto>>, GetAllCaseTypeHandler>();
-// CaseCategory Handlers
-            services.AddScoped<IRequestHandler<CreateCaseCategoryCommand, CaseCategoryDto>, CreateCaseCategoryHandler>();
-            services.AddScoped<IRequestHandler<GetAllCaseCategoryQuery, IEnumerable<CaseCategoryDto>>, GetAllCaseCategoryHandler>();
-
-            // CaseNote Handlers
-            services.AddScoped<IRequestHandler<CreateCaseNoteCommand, CaseNoteDto>, CreateCaseNoteHandler>();
-            services.AddScoped<IRequestHandler<DeleteCaseNoteCommand, bool>, DeleteCaseNoteHandler>();
-
-            // Court Handlers
-            services.AddScoped<IRequestHandler<GetAllCourtsQuery, IEnumerable<CourtDto>>, GetAllCourtsHandler>();
-            services.AddScoped<IRequestHandler<GetCourtByIdQuery, CourtDto?>, GetCourtByIdHandler>();
-            services.AddScoped<IRequestHandler<CreateCourtCommand, CourtDto>, CreateCourtHandler>();
-            services.AddScoped<IRequestHandler<UpdateCourtCommand, CourtDto>, UpdateCourtHandler>();
-            services.AddScoped<IRequestHandler<DeleteCourtCommand, bool>, DeleteCourtHandler>();
-
-            // CaseParty Handlers
-            services.AddScoped<IRequestHandler<GetAllCasePartiesQuery, IEnumerable<CasePartyDto>>, GetAllCasePartiesHandler>();
-            services.AddScoped<IRequestHandler<GetCasePartyByIdQuery, CasePartyDto?>, GetCasePartyByIdHandler>();
-            services.AddScoped<IRequestHandler<GetCasePartiesByCaseIdQuery, IEnumerable<CasePartyDto>>, GetCasePartiesByCaseIdHandler>();
-            services.AddScoped<IRequestHandler<CreateCasePartyCommand, CasePartyDto>, CreateCasePartyHandler>();
-            services.AddScoped<IRequestHandler<UpdateCasePartyCommand, CasePartyDto>, UpdateCasePartyHandler>();
-            services.AddScoped<IRequestHandler<DeleteCasePartyCommand, bool>, DeleteCasePartyHandler>();
-
             return services;
         }
     }

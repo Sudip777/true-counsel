@@ -1,8 +1,8 @@
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TrueCounsel.Application.Common.Abstractions;
 using TrueCounsel.Application.Features.Lawyer.Commands;
 using TrueCounsel.Application.Features.Lawyer.Dtos;
 using TrueCounsel.Application.Features.Lawyer.Queries;
@@ -11,27 +11,13 @@ namespace TrueCounsel.API.Controllers.V1
 {
     [ApiController]
     [Route("api/v1/[controller]")]
-    
     public class LawyerController : ControllerBase
     {
-        private readonly ICommandHandler<RegisterLawyerCommand, LawyerDto> _registerHandler;
-        private readonly ICommandHandler<UpdateLawyerCommand, LawyerDto> _updateHandler;
-        private readonly ICommandHandler<DeleteLawyerCommand, bool> _deleteHandler;
-        private readonly IQueryHandler<GetAllLawyersQuery, IEnumerable<LawyerDto>> _getAllHandler;
-        private readonly IQueryHandler<GetLawyerByIdQuery, LawyerDto?> _getByIdHandler;
+        private readonly IMediator _mediator;
 
-        public LawyerController(
-            ICommandHandler<RegisterLawyerCommand, LawyerDto> registerHandler,
-            ICommandHandler<UpdateLawyerCommand, LawyerDto> updateHandler,
-            ICommandHandler<DeleteLawyerCommand, bool> deleteHandler,
-            IQueryHandler<GetAllLawyersQuery, IEnumerable<LawyerDto>> getAllHandler,
-            IQueryHandler<GetLawyerByIdQuery, LawyerDto?> getByIdHandler)
+        public LawyerController(IMediator mediator)
         {
-            _registerHandler = registerHandler;
-            _updateHandler = updateHandler;
-            _deleteHandler = deleteHandler;
-            _getAllHandler = getAllHandler;
-            _getByIdHandler = getByIdHandler;
+            _mediator = mediator;
         }
 
         /// <summary> Gets all lawers </summary>
@@ -39,7 +25,7 @@ namespace TrueCounsel.API.Controllers.V1
         [ProducesResponseType(typeof(IEnumerable<LawyerDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
         {
-            var result = await _getAllHandler.HandleAsync(new GetAllLawyersQuery());
+            var result = await _mediator.Send(new GetAllLawyersQuery());
             return Ok(result);
         }
 
@@ -49,7 +35,7 @@ namespace TrueCounsel.API.Controllers.V1
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
         {
-            var result = await _getByIdHandler.HandleAsync(new GetLawyerByIdQuery(id));
+            var result = await _mediator.Send(new GetLawyerByIdQuery(id));
             if(result == null) return NotFound();
             return Ok(result);
         }
@@ -60,7 +46,7 @@ namespace TrueCounsel.API.Controllers.V1
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Register(RegisterLawyerCommand command)
         {
-            var result = await _registerHandler.HandleAsync(command);
+            var result = await _mediator.Send(command);
             return CreatedAtRoute("GetLawyerById", new { id = result.Id }, result);
         }
 
@@ -70,7 +56,7 @@ namespace TrueCounsel.API.Controllers.V1
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Update(UpdateLawyerCommand command)
         {
-            var result = await _updateHandler.HandleAsync(command);
+            var result = await _mediator.Send(command);
             return Ok(result);
         }
 
@@ -80,7 +66,7 @@ namespace TrueCounsel.API.Controllers.V1
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
-            var result = await _deleteHandler.HandleAsync(new DeleteLawyerCommand { Id = id });
+            var result = await _mediator.Send(new DeleteLawyerCommand { Id = id });
             if(!result) return NotFound();
             return NoContent();
         }

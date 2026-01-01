@@ -2,14 +2,14 @@
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using TrueCounsel.Application.Common.Abstractions;
+using MediatR;
 using TrueCounsel.Application.Features.Lawyer.Commands;
 using TrueCounsel.Application.Features.Lawyer.Dtos;
-using TrueCounsel.Domain.Entities;
+using TrueCounsel.Domain.Interfaces;
 
 namespace TrueCounsel.Application.Features.Lawyer.Commands.Handlers
 {
-    public class RegisterLawyerHandler : ICommandHandler<RegisterLawyerCommand, LawyerDto>
+    public class RegisterLawyerHandler : IRequestHandler<RegisterLawyerCommand, LawyerDto>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -23,7 +23,7 @@ namespace TrueCounsel.Application.Features.Lawyer.Commands.Handlers
         }
 
         /// <summary> registrs a new lawer </summary>
-        public async Task<LawyerDto> HandleAsync(RegisterLawyerCommand command, CancellationToken cancellationToken = default)
+        public async Task<LawyerDto> Handle(RegisterLawyerCommand command, CancellationToken cancellationToken)
         {
             if(command == null) throw new ArgumentNullException(nameof(command));
 

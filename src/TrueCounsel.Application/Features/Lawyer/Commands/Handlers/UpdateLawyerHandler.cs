@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using TrueCounsel.Application.Common.Abstractions;
+using MediatR;
 using TrueCounsel.Application.Common.Exceptions;
 using TrueCounsel.Application.Features.Lawyer.Commands;
 using TrueCounsel.Application.Features.Lawyer.Dtos;
+using TrueCounsel.Domain.Interfaces;
 
 namespace TrueCounsel.Application.Features.Lawyer.Commands.Handlers
 {
-    public class UpdateLawyerHandler : ICommandHandler<UpdateLawyerCommand, LawyerDto>
+    public class UpdateLawyerHandler : IRequestHandler<UpdateLawyerCommand, LawyerDto>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -24,7 +25,7 @@ namespace TrueCounsel.Application.Features.Lawyer.Commands.Handlers
         }
 
         /// <summary> updates exsting lawer deetails </summary>
-        public async Task<LawyerDto> HandleAsync(UpdateLawyerCommand command, CancellationToken cancellationToken = default)
+        public async Task<LawyerDto> Handle(UpdateLawyerCommand command, CancellationToken cancellationToken)
         {
              ArgumentNullException.ThrowIfNull(command);
 

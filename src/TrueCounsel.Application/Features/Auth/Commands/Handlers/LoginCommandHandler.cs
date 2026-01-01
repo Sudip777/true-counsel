@@ -2,15 +2,16 @@
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using TrueCounsel.Application.Common.Abstractions;
+using MediatR;
 using TrueCounsel.Application.Common.Models;
 using TrueCounsel.Application.Features.Auth.Commands;
 using TrueCounsel.Application.Features.Auth.Dtos;
 using TrueCounsel.Domain.Entities;
+using TrueCounsel.Domain.Interfaces;
 
 namespace TrueCounsel.Application.Features.Auth.Commands.Handlers
 {
-    public class LoginCommandHandler : ICommandHandler<LoginCommand, LoginResponseDto>
+    public class LoginCommandHandler : IRequestHandler<LoginCommand, LoginResponseDto>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IPasswordHasher _paswordHasher;
@@ -26,7 +27,7 @@ namespace TrueCounsel.Application.Features.Auth.Commands.Handlers
         }
 
         /// <summary> handls login logic and saves tokin </summary>
-        public async Task<LoginResponseDto> HandleAsync(LoginCommand command, CancellationToken cancellationToken = default)
+        public async Task<LoginResponseDto> Handle(LoginCommand command, CancellationToken cancellationToken)
         {
             ArgumentNullException.ThrowIfNull(command);
             var user = await _unitOfWork.UserRepository.GetByEmailAsync(command.Email);

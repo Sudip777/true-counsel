@@ -1,6 +1,9 @@
+using MediatR;
+using TrueCounsel.Application.Features.Lawyer.Dtos;
+
 namespace TrueCounsel.Application.Features.Lawyer.Queries
 {
-    public class GetLawyerByIdQuery
+    public class GetLawyerByIdQuery : IRequest<LawyerDto?>
     {
         public int Id { get; set; }
 

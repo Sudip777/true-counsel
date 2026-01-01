@@ -1,11 +1,12 @@
 using System.Threading;
 using System.Threading.Tasks;
-using TrueCounsel.Application.Common.Abstractions;
+using MediatR;
 using TrueCounsel.Application.Features.Lawyer.Commands;
+using TrueCounsel.Domain.Interfaces;
 
 namespace TrueCounsel.Application.Features.Lawyer.Commands.Handlers
 {
-    public class DeleteLawyerHandler : ICommandHandler<DeleteLawyerCommand, bool>
+    public class DeleteLawyerHandler : IRequestHandler<DeleteLawyerCommand, bool>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly FluentValidation.IValidator<DeleteLawyerCommand> _validator;
@@ -17,7 +18,7 @@ namespace TrueCounsel.Application.Features.Lawyer.Commands.Handlers
         }
 
         /// <summary> deletz lawer by id </summary>
-        public async Task<bool> HandleAsync(DeleteLawyerCommand command, CancellationToken cancellationToken = default)
+        public async Task<bool> Handle(DeleteLawyerCommand command, CancellationToken cancellationToken)
         {
             if (command == null) return false;
 

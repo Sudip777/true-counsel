@@ -1,6 +1,9 @@
-﻿namespace TrueCounsel.Application.Features.Lawyer.Commands
+﻿using MediatR;
+using TrueCounsel.Application.Features.Lawyer.Dtos;
+
+namespace TrueCounsel.Application.Features.Lawyer.Commands
 {
-    public class UpdateLawyerCommand
+    public class UpdateLawyerCommand : IRequest<LawyerDto>
     {
         public int Id { get; set; }
         public string? Specialization { get; set; }

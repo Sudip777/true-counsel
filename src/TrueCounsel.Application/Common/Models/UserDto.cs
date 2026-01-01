@@ -12,7 +12,5 @@ namespace TrueCounsel.Application.Common.Models
         public UserRole Role { get; set; } = UserRole.Client;
         public bool IsActive { get; set; } = true;
     }
-   
-
 
 }
