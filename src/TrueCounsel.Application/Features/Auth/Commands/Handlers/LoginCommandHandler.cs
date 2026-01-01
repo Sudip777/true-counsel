@@ -29,7 +29,7 @@ namespace TrueCounsel.Application.Features.Auth.Commands.Handlers
         public async Task<LoginResponseDto> HandleAsync(LoginCommand command, CancellationToken cancellationToken = default)
         {
             ArgumentNullException.ThrowIfNull(command);
-            var user = await _unitOfWork.UserRepository.GetByEmailAsync(command.Email).ConfigureAwait(false);
+            var user = await _unitOfWork.UserRepository.GetByEmailAsync(command.Email);
 
             if (user is null || !user.IsActive)
                 throw new UnauthorizedAccessException("Invalid email or password");

@@ -55,7 +55,9 @@ namespace TrueCounsel.Application.Common.Mappings
             CreateMap<CaseParty, CasePartyDto>();
 
             // Court
-            CreateMap<Court, CourtDto>();
+            CreateMap<Court, CourtDto>()
+                .ForMember(d => d.CourtTypeId, opt => opt.MapFrom(s => s.CourtTypeField.Id))
+                .ForMember(d => d.CourtTypeName, opt => opt.MapFrom(s => s.CourtTypeField.Name));
 
             // CaseParty
             CreateMap<CreateCasePartyCommand, CaseParty>();

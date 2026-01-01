@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace TrueCounsel.API.Controllers
         /// </summary>
         /// <returns>A list of all case types</returns>
         [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<CaseTypeDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
         {
             var result = await _mediator.Send(new GetAllCaseTypeQuery());
@@ -36,6 +38,8 @@ namespace TrueCounsel.API.Controllers
         /// <param name="request">Case type details</param>
         /// <returns>The created case type</returns>
         [HttpPost]
+        [ProducesResponseType(typeof(CaseTypeDto), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Create([FromBody] CreateCaseTypeCommand request)
         {
             if (request == null)

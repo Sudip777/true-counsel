@@ -23,7 +23,7 @@ namespace TrueCounsel.Infrastructure.Persistence.Repositories
 
         public async Task<bool> DeleteAsync(int id)
         {
-             var lawyer = await _dbContext.Lawyers.FindAsync(id).ConfigureAwait(false);
+            var lawyer = await _dbContext.Lawyers.FindAsync(id);
              if(lawyer == null) return false;
              _dbContext.Lawyers.Remove(lawyer);
              return true;
@@ -32,7 +32,7 @@ namespace TrueCounsel.Infrastructure.Persistence.Repositories
         /// <summary> getz all lawers list </summary>
         public async Task<IEnumerable<Lawyer>> GetAllAsync()
         {
-            return await _dbContext.Lawyers.ToListAsync().ConfigureAwait(false);
+            return await _dbContext.Lawyers.ToListAsync();
         }
 
         public async Task<Lawyer?> GetByIdAsync(int id)

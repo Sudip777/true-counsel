@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using TrueCounsel.Application.Common.Abstractions;
+using TrueCounsel.Application.Common.Exceptions;
 using TrueCounsel.Application.Features.Lawyer.Commands;
 using TrueCounsel.Application.Features.Lawyer.Dtos;
 
@@ -29,11 +31,11 @@ namespace TrueCounsel.Application.Features.Lawyer.Commands.Handlers
              var validationResult = await _validator.ValidateAsync(command, cancellationToken);
              if (!validationResult.IsValid)
              {
-                 throw new TrueCounsel.Application.Common.Exceptions.AppValidationException(validationResult.Errors);
+                 throw new AppValidationException(validationResult.Errors);
              }
 
              var lawyer = await _unitOfWork.LawyerRepository.GetByIdAsync(command.Id);
-             if (lawyer == null) throw new Exception($"Lawyer with id {command.Id} not found");
+             if (lawyer == null) throw new KeyNotFoundException($"Lawyer with id {command.Id} not found");
 
              _mapper.Map(command, lawyer);
              lawyer.UpdatedAt = DateTime.UtcNow;
