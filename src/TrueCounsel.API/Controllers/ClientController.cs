@@ -1,9 +1,11 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TrueCounsel.API.Models.Requests;
 using TrueCounsel.Application.Features.Client.Commands;
+using TrueCounsel.Application.Features.Client.Dtos;
 using TrueCounsel.Application.Features.Client.Queries;
 
 namespace TrueCounsel.API.Controllers
@@ -20,6 +22,7 @@ namespace TrueCounsel.API.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<ClientDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
         {
             var result = await _mediator.Send(new GetAllClientsQuery());
@@ -27,6 +30,8 @@ namespace TrueCounsel.API.Controllers
         }
 
         [HttpGet("{id}", Name = "GetClientById")]
+        [ProducesResponseType(typeof(ClientDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
         {
             var result = await _mediator.Send(new GetClientByIdQuery(id));
@@ -35,6 +40,8 @@ namespace TrueCounsel.API.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(typeof(ClientDto), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Create([FromBody] CreateClientRequest request)
         {
             var command = new CreateClientCommand
@@ -48,10 +55,12 @@ namespace TrueCounsel.API.Controllers
             };
 
             var result = await _mediator.Send(command);
-            return CreatedAtRoute(nameof(GetById), new { id = result.Id }, result);
+            return CreatedAtRoute("GetClientById", new { id = result.Id }, result);
         }
 
         [HttpPut("{id}")]
+        [ProducesResponseType(typeof(ClientDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Update(int id, [FromBody] UpdateClientRequest request)
         {
             var command = new UpdateClientCommand
@@ -70,6 +79,8 @@ namespace TrueCounsel.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _mediator.Send(new DeleteClientCommand(id));

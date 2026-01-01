@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace TrueCounsel.API.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<CaseNoteDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
         {
             var result = await _mediator.Send(new GetAllCaseNoteQuery());
@@ -27,6 +29,8 @@ namespace TrueCounsel.API.Controllers
         }
 
         [HttpGet("{id}", Name = "GetCaseNoteById")]
+        [ProducesResponseType(typeof(CaseNoteDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
         {
             var result = await _mediator.Send(new GetCaseNoteByIdQuery(id));
@@ -36,6 +40,8 @@ namespace TrueCounsel.API.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(typeof(CaseNoteDto), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Create([FromBody] CreateCaseNoteCommand request)
         {
             if (request == null)
@@ -46,6 +52,8 @@ namespace TrueCounsel.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _mediator.Send(new DeleteCaseNoteCommand(id));

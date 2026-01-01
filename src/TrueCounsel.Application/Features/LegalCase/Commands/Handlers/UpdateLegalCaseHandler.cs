@@ -26,7 +26,7 @@ namespace TrueCounsel.Application.Features.LegalCase.Commands.Handlers
             if (legalCase == null) return null!;
 
             _mapper.Map(request, legalCase);
-            legalCase.LastModifiedAt = DateTime.UtcNow;
+            legalCase.UpdatedAt = DateTime.UtcNow;
 
             await _unitOfWork.LegalCaseRepository.UpdateAsync(legalCase);
             await _unitOfWork.CommitAsync();

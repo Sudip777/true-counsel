@@ -1,9 +1,11 @@
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TrueCounsel.Application.Features.Court.Commands;
+using TrueCounsel.Application.Features.Court.Dtos;
 using TrueCounsel.Application.Features.Court.Queries;
 
 namespace TrueCounsel.API.Controllers
@@ -29,7 +31,12 @@ namespace TrueCounsel.API.Controllers
         /// Retrieves all active courts (excluding soft-deleted records).
         /// </summary>
         /// <returns>List of court DTOs</returns>
+        /// <summary>
+        /// Retrieves all active courts (excluding soft-deleted records).
+        /// </summary>
+        /// <returns>List of court DTOs</returns>
         [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<CourtDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
         {
             var result = await _mediator.Send(new GetAllCourtsQuery());
@@ -43,6 +50,8 @@ namespace TrueCounsel.API.Controllers
         /// <param name="id">The court ID</param>
         /// <returns>Court DTO if found</returns>
         [HttpGet("{id}", Name = "GetCourtById")]
+        [ProducesResponseType(typeof(CourtDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
         {
             var result = await _mediator.Send(new GetCourtByIdQuery(id));
@@ -56,6 +65,8 @@ namespace TrueCounsel.API.Controllers
         /// <param name="request">Court creation request containing name, address, city, state, and court type ID</param>
         /// <returns>Created court DTO with assigned ID</returns>
         [HttpPost]
+        [ProducesResponseType(typeof(CourtDto), StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Create([FromBody] CreateCourtRequest request)
         {
             if (!ModelState.IsValid)
@@ -71,7 +82,7 @@ namespace TrueCounsel.API.Controllers
             };
 
             var result = await _mediator.Send(command);
-            return CreatedAtRoute(nameof(GetById), new { id = result.Id }, result);
+            return CreatedAtRoute("GetCourtById", new { id = result.Id }, result);
         }
 
         /// <summary>
@@ -81,6 +92,9 @@ namespace TrueCounsel.API.Controllers
         /// <param name="request">Court update request containing updated fields</param>
         /// <returns>Updated court DTO</returns>
         [HttpPut("{id}")]
+        [ProducesResponseType(typeof(CourtDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Update(int id, [FromBody] UpdateCourtRequest request)
         {
             if (!ModelState.IsValid)
@@ -114,6 +128,8 @@ namespace TrueCounsel.API.Controllers
         /// <param name="id">The court ID to delete</param>
         /// <returns>NoContent (204) on success, NotFound (404) if court not found</returns>
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _mediator.Send(new DeleteCourtCommand(id));

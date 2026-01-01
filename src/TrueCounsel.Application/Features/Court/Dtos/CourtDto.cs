@@ -1,5 +1,4 @@
 using System;
-using TrueCounsel.Domain.Entities;
 
 namespace TrueCounsel.Application.Features.Court.Dtos
 {
@@ -14,7 +13,8 @@ namespace TrueCounsel.Application.Features.Court.Dtos
         public string? Address { get; set; }
         public string? City { get; set; }
         public string? State { get; set; }
-        public required CourtType CourtTypeField { get; set; }
+        public int CourtTypeId { get; set; }
+        public string CourtTypeName { get; set; } = null!;
         public DateTime CreatedAt { get; set; }
     }
 }
