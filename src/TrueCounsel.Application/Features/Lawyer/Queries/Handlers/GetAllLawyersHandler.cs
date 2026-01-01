@@ -2,13 +2,13 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using TrueCounsel.Application.Common.Abstractions;
+using MediatR;
 using TrueCounsel.Application.Features.Lawyer.Dtos;
 using TrueCounsel.Domain.Interfaces;
 
 namespace TrueCounsel.Application.Features.Lawyer.Queries.Handlers
 {
-    public class GetAllLawyersHandler : IQueryHandler<GetAllLawyersQuery, IEnumerable<LawyerDto>>
+    public class GetAllLawyersHandler : IRequestHandler<GetAllLawyersQuery, IEnumerable<LawyerDto>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -19,7 +19,7 @@ namespace TrueCounsel.Application.Features.Lawyer.Queries.Handlers
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<LawyerDto>> HandleAsync(GetAllLawyersQuery query, CancellationToken cancellationToken = default)
+        public async Task<IEnumerable<LawyerDto>> Handle(GetAllLawyersQuery query, CancellationToken cancellationToken)
         {
             // fetch all lawyrs from repo
             var lawyers = await _unitOfWork.LawyerRepository.GetAllAsync();

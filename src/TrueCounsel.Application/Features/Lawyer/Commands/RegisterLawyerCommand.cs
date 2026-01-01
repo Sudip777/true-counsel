@@ -1,6 +1,9 @@
-﻿namespace TrueCounsel.Application.Features.Lawyer.Commands
+﻿using MediatR;
+using TrueCounsel.Application.Features.Lawyer.Dtos;
+
+namespace TrueCounsel.Application.Features.Lawyer.Commands
 {
-    public class RegisterLawyerCommand
+    public class RegisterLawyerCommand : IRequest<LawyerDto>
     {
         public int UserId { get; set; }
         public required string BarNumber { get; set; }
