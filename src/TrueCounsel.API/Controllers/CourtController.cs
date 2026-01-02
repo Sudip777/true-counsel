@@ -12,8 +12,6 @@ namespace TrueCounsel.API.Controllers
 {
     /// <summary>
     /// API Controller for managing Court resources.
-    /// Provides RESTful endpoints for CRUD operations on courts.
-    /// Follows clean architecture with MediatR pattern for command/query handling.
     /// All delete operations perform soft deletes (preserving records for audit purposes).
     /// </summary>
     [ApiController]

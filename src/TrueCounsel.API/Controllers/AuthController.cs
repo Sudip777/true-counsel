@@ -8,7 +8,7 @@ using TrueCounsel.Application.Common.Models;
 using TrueCounsel.Application.Features.Auth.Commands;
 using TrueCounsel.Application.Features.Auth.Dtos;
 
-namespace TrueCounsel.API.Controllers.V1
+namespace TrueCounsel.API.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
