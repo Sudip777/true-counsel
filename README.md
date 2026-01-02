@@ -17,14 +17,39 @@ TrueCounsel is designed to streamline legal workflows, case tracking, and client
 - **Security:** JWT (Bearer) Authentication
 - **Documentation:** OpenAPI with Scalar UI
 
-## 🏗 Architecture
+## 🏗 Architecture & Data Model
 
-The solution is divided into four main layers:
+![Clean Architecture Stack](docs/assets/architecture.png)
 
-- **TrueCounsel.Domain:** Core entities, interfaces, and domain logic. Zero external dependencies.
-- **TrueCounsel.Application:** Interface-driven logic, CQRS commands/queries, and DTOs.
-- **TrueCounsel.Infrastructure:** Data persistence (EF Core), repository implementations, and external services.
-- **TrueCounsel.API:** Entry point, Middleware, and Controllers leveraging IMediator.
+The solution follows **Clean Architecture** principles to ensure separation of concerns and maintainability:
+
+- **TrueCounsel.Domain:** Contains the Enterprise Logic—Entities (LegalCase, Client, Lawyer), Value Objects, Domain Events, and Enums. It has no dependencies on other layers.
+- **TrueCounsel.Application:** Contains the Business Logic—CQRS Commands/Queries, MediatR Handlers, DTOs, and AutoMapper profiles. It depends only on the Domain layer.
+- **TrueCounsel.Infrastructure:** Contains Implementation details—EF Core DbContext, Repositories, Unit of Work (UoW), and Identity services. It depends on Application and Domain.
+- **TrueCounsel.API:** The Presentation layer—Controllers, Middleware, and Filters. It interacts with the system solely through MediatR.
+
+### 📊 Entity Relationship Diagram (Conceptual)
+
+![ERD Visualization](docs/assets/erd_visualization.png)
+
+The system is centered around the `LegalCase` entity, which serves as the aggregate root for:
+- **Clients & Lawyers:** Managing the primary stakeholders of a case.
+- **Courts & Case Types:** Categorizing the jurisdiction and nature of the litigation.
+- **Notes & Status History:** Tracking the chronological progress and evidence.
+
+---
+
+## 🔄 Business Logic Flow
+
+The project implements a strict request-response flow to ensure consistency:
+
+1. **API Layer:** Controller receives an HTTP Request → Maps to a **Command/Query DTO**.
+2. **MediatR Pipeline:** Command is sent to `IMediator` → Triggers **Validation Behavior** (FluentValidation).
+3. **Application Layer:** Handler receives the validated command → Uses **Unit of Work** to interact with Repositories.
+4. **Domain Layer:** Business rules are applied to **Entities** → State changes are recorded.
+5. **Infrastructure Layer:** **EF Core** persists changes to **SQL Server** through the UoW transaction.
+6. **Application Layer:** Result is mapped back to a **DTO** via **AutoMapper**.
+7. **API Layer:** Returns the standardized Result via `ProducesResponseType`.
 
 ## 🚦 Getting Started
 
