@@ -2,11 +2,11 @@
 
 A robust Legal Management System built on .NET 9, following Clean Architecture principles and modern development patterns.
 
-## 🚀 Overview
+## Overview
 
 TrueCounsel is designed to streamline legal workflows, case tracking, and client management. It prioritizes maintainability, scalability, and performance through a decoupled architecture.
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Framework:** .NET 9 Web API
 - **Layering:** Clean Architecture (Onion)
@@ -17,7 +17,7 @@ TrueCounsel is designed to streamline legal workflows, case tracking, and client
 - **Security:** JWT (Bearer) Authentication
 - **Documentation:** OpenAPI with Scalar UI
 
-## 🏗 Architecture & Data Model
+## Architecture & Data Model
 
 ![Clean Architecture Stack](docs/assets/architecture.png)
 
@@ -28,18 +28,19 @@ The solution follows **Clean Architecture** principles to ensure separation of c
 - **TrueCounsel.Infrastructure:** Contains Implementation details—EF Core DbContext, Repositories, Unit of Work (UoW), and Identity services. It depends on Application and Domain.
 - **TrueCounsel.API:** The Presentation layer—Controllers, Middleware, and Filters. It interacts with the system solely through MediatR.
 
-### 📊 Entity Relationship Diagram (Conceptual)
+### Entity Relationship Diagram (Conceptual)
 
 ![ERD Visualization](docs/assets/erd_visualization.png)
 
 The system is centered around the `LegalCase` entity, which serves as the aggregate root for:
+
 - **Clients & Lawyers:** Managing the primary stakeholders of a case.
 - **Courts & Case Types:** Categorizing the jurisdiction and nature of the litigation.
 - **Notes & Status History:** Tracking the chronological progress and evidence.
 
 ---
 
-## 🔄 Business Logic Flow
+## Business Logic Flow
 
 The project implements a strict request-response flow to ensure consistency:
 
@@ -51,13 +52,15 @@ The project implements a strict request-response flow to ensure consistency:
 6. **Application Layer:** Result is mapped back to a **DTO** via **AutoMapper**.
 7. **API Layer:** Returns the standardized Result via `ProducesResponseType`.
 
-## 🚦 Getting Started
+## Getting Started
 
 ### Prerequisites
+
 - .NET 9 SDK
 - SQL Server
 
 ### Setup
+
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/Sudip777/true-counsel.git
@@ -73,7 +76,7 @@ The project implements a strict request-response flow to ensure consistency:
    dotnet run --project src/TrueCounsel.API
    ```
 
-## 📖 API Documentation
+## API Documentation
 
 Once the application is running, the interactive API documentation (Scalar) is available at:
 `https://localhost:PORT/` (Redirects to `/scalar/v1`)
