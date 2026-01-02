@@ -81,7 +81,7 @@ The project implements a strict request-response flow to ensure consistency:
 Once the application is running, the interactive API documentation (Scalar) is available at:
 `https://localhost:PORT/` (Redirects to `/scalar/v1`)
 
-## 🛡 Features
+##  Features
 
 - **Granular Auth:** Secure authentication and identity management.
 - **Case Management:** Full lifecycle tracking of legal cases.
