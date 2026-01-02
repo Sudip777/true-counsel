@@ -2,11 +2,11 @@
 
 A robust Legal Management System built on .NET 9, following Clean Architecture principles and modern development patterns.
 
-## 🚀 Overview
+## Overview
 
 TrueCounsel is designed to streamline legal workflows, case tracking, and client management. It prioritizes maintainability, scalability, and performance through a decoupled architecture.
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Framework:** .NET 9 Web API
 - **Layering:** Clean Architecture (Onion)
@@ -17,7 +17,7 @@ TrueCounsel is designed to streamline legal workflows, case tracking, and client
 - **Security:** JWT (Bearer) Authentication
 - **Documentation:** OpenAPI with Scalar UI
 
-## 🏗 Architecture
+## Architecture
 
 The solution is divided into four main layers:
 
@@ -26,13 +26,15 @@ The solution is divided into four main layers:
 - **TrueCounsel.Infrastructure:** Data persistence (EF Core), repository implementations, and external services.
 - **TrueCounsel.API:** Entry point, Middleware, and Controllers leveraging IMediator.
 
-## 🚦 Getting Started
+## Getting Started
 
 ### Prerequisites
+
 - .NET 9 SDK
 - SQL Server
 
 ### Setup
+
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/Sudip777/true-counsel.git
@@ -48,12 +50,12 @@ The solution is divided into four main layers:
    dotnet run --project src/TrueCounsel.API
    ```
 
-## 📖 API Documentation
+## API Documentation
 
 Once the application is running, the interactive API documentation (Scalar) is available at:
 `https://localhost:PORT/` (Redirects to `/scalar/v1`)
 
-## 🛡 Features
+## Features
 
 - **Granular Auth:** Secure authentication and identity management.
 - **Case Management:** Full lifecycle tracking of legal cases.
