@@ -20,6 +20,7 @@ namespace TrueCounsel.API.Controllers
             _mediator = mediator;
         }
 
+        /// <summary> Gets all case notes. </summary>
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<CaseNoteDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
@@ -28,6 +29,7 @@ namespace TrueCounsel.API.Controllers
             return Ok(result);
         }
 
+        /// <summary> Gets a case note by id. </summary>
         [HttpGet("{id}", Name = "GetCaseNoteById")]
         [ProducesResponseType(typeof(CaseNoteDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -39,6 +41,7 @@ namespace TrueCounsel.API.Controllers
             return Ok(result);
         }
 
+        /// <summary> Creates a new case note. </summary>
         [HttpPost]
         [ProducesResponseType(typeof(CaseNoteDto), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -51,6 +54,7 @@ namespace TrueCounsel.API.Controllers
             return CreatedAtRoute("GetCaseNoteById", new { id = result.Id }, result);
         }
 
+        /// <summary> Deletes a case note. </summary>
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

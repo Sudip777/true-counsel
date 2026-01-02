@@ -20,6 +20,7 @@ namespace TrueCounsel.API.Controllers
             _mediator = mediator;
         }
 
+        /// <summary> Gets all case categories. </summary>
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<CaseCategoryDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
@@ -28,6 +29,7 @@ namespace TrueCounsel.API.Controllers
             return Ok(result);
         }
 
+        /// <summary> Creates a new case category. </summary>
         [HttpPost]
         [ProducesResponseType(typeof(CaseCategoryDto), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

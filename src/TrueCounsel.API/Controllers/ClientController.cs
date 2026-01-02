@@ -21,6 +21,7 @@ namespace TrueCounsel.API.Controllers
             _mediator = mediator;
         }
 
+        /// <summary> Gets all clients. </summary>
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<ClientDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
@@ -29,6 +30,7 @@ namespace TrueCounsel.API.Controllers
             return Ok(result);
         }
 
+        /// <summary> Gets a client by id. </summary>
         [HttpGet("{id}", Name = "GetClientById")]
         [ProducesResponseType(typeof(ClientDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -39,6 +41,7 @@ namespace TrueCounsel.API.Controllers
             return Ok(result);
         }
 
+        /// <summary> Creates a new client. </summary>
         [HttpPost]
         [ProducesResponseType(typeof(ClientDto), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -58,6 +61,7 @@ namespace TrueCounsel.API.Controllers
             return CreatedAtRoute("GetClientById", new { id = result.Id }, result);
         }
 
+        /// <summary> Updates an existing client. </summary>
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(ClientDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -78,6 +82,7 @@ namespace TrueCounsel.API.Controllers
             return Ok(result);
         }
 
+        /// <summary> Deletes a client. </summary>
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

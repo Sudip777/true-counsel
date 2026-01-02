@@ -36,6 +36,7 @@ namespace TrueCounsel.API.Controllers.V1
             return Ok(result);
         }
 
+        /// <summary> Registers a new user. </summary>
         [HttpPost("register")]
         [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

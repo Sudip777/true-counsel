@@ -21,6 +21,7 @@ namespace TrueCounsel.API.Controllers
             _mediator = mediator;
         }
 
+        /// <summary> Gets all legal cases. </summary>
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<LegalCaseDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
@@ -29,6 +30,7 @@ namespace TrueCounsel.API.Controllers
             return Ok(result);
         }
 
+        /// <summary> Gets a legal case by id. </summary>
         [HttpGet("{id}", Name = "GetLegalCaseById")]
         [ProducesResponseType(typeof(LegalCaseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -39,6 +41,7 @@ namespace TrueCounsel.API.Controllers
             return Ok(result);
         }
 
+        /// <summary> Creates a new legal case. </summary>
         [HttpPost]
         [ProducesResponseType(typeof(LegalCaseDto), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -69,6 +72,7 @@ namespace TrueCounsel.API.Controllers
             return CreatedAtRoute("GetLegalCaseById", new { id = result.Id }, result);
         }
 
+        /// <summary> Updates an existing legal case. </summary>
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(LegalCaseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -104,6 +108,7 @@ namespace TrueCounsel.API.Controllers
             return Ok(result);
         }
 
+        /// <summary> Deletes a legal case. </summary>
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

@@ -20,7 +20,7 @@ namespace TrueCounsel.API.Controllers.V1
             _mediator = mediator;
         }
 
-        /// <summary> Gets all lawers </summary>
+        /// <summary> Gets all lawyers. </summary>
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<LawyerDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
@@ -29,7 +29,7 @@ namespace TrueCounsel.API.Controllers.V1
             return Ok(result);
         }
 
-        /// <summary> Gets a lawyer by id  </summary>
+        /// <summary> Gets a lawyer by id. </summary>
         [HttpGet("{id}", Name = "GetLawyerById")]
         [ProducesResponseType(typeof(LawyerDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -40,7 +40,7 @@ namespace TrueCounsel.API.Controllers.V1
             return Ok(result);
         }
 
-        /// <summary> Registers new lawer </summary>
+        /// <summary> Registers a new lawyer. </summary>
         [HttpPost]
         [ProducesResponseType(typeof(LawyerDto), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -50,7 +50,7 @@ namespace TrueCounsel.API.Controllers.V1
             return CreatedAtRoute("GetLawyerById", new { id = result.Id }, result);
         }
 
-        /// <summary> Updates an existing lawyer </summary>
+        /// <summary> Updates an existing lawyer. </summary>
         [HttpPut]
         [ProducesResponseType(typeof(LawyerDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -60,7 +60,7 @@ namespace TrueCounsel.API.Controllers.V1
             return Ok(result);
         }
 
-        /// <summary> Deletes a lawyer </summary>
+        /// <summary> Deletes a lawyer. </summary>
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
