@@ -9,7 +9,7 @@ namespace TrueCounsel.Domain.Entities
 {
     public class CaseType : BaseAuditableEntity
     {
-        public string Name { get; private set; } = null!;
+        public string Name { get;  set; } = null!;
         public string? Description { get;  set; }
 
         // Navigation
