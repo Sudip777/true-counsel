@@ -16,6 +16,8 @@ using TrueCounsel.Application.Features.Lawyer.Commands;
 using TrueCounsel.Application.Features.Lawyer.Dtos;
 using TrueCounsel.Application.Features.LegalCase.Commands;
 using TrueCounsel.Application.Features.LegalCase.Dtos;
+using TrueCounsel.Application.Features.CaseNote.Commands;
+using TrueCounsel.Application.Features.CaseNote.Dtos;
 using TrueCounsel.Domain.Entities;
 
 namespace TrueCounsel.Application.Common.Mappings
@@ -65,6 +67,10 @@ namespace TrueCounsel.Application.Common.Mappings
             CreateMap<CreateLegalCaseCommand, LegalCase>(MemberList.Source);
             CreateMap<UpdateLegalCaseCommand, LegalCase>(MemberList.Source);
             CreateMap<LegalCase, LegalCaseDto>();
+
+            // CaseNote
+            CreateMap<CreateCaseNoteCommand, CaseNote>(MemberList.Source);
+            CreateMap<CaseNote, CaseNoteDto>();
         }
     }
 }

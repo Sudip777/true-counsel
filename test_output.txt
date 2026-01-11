@@ -9,4 +9,4 @@ VSTest version 17.14.1 (x64)
 Starting test execution, please wait...
 A total of 1 test files matched the specified pattern.
 
-Passed!  - Failed:     0, Passed:     9, Skipped:     0, Total:     9, Duration: 210 ms - TrueCounsel.Application.UnitTests.dll (net9.0)
+Passed!  - Failed:     0, Passed:    28, Skipped:     0, Total:    28, Duration: 249 ms - TrueCounsel.Application.UnitTests.dll (net9.0)

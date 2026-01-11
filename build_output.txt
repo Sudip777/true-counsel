@@ -1,11 +1,24 @@
   Determining projects to restore...
   All projects are up-to-date for restore.
   TrueCounsel.Domain -> C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Domain\bin\Debug\net9.0\TrueCounsel.Domain.dll
-  TrueCounsel.Application -> C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\bin\Debug\net9.0\TrueCounsel.Application.dll
-  TrueCounsel.Application.UnitTests -> C:\Users\sudip\source\repos\TrueCounsel\tests\TrueCounsel.Application.UnitTests\bin\Debug\net9.0\TrueCounsel.Application.UnitTests.dll
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\Common\Mappings\MappingProfile.cs(66,23): error CS0246: The type or namespace name 'CreateLegalCaseCommand' could not be found (are you missing a using directive or an assembly reference?) [C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\TrueCounsel.Application.csproj]
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\Common\Mappings\MappingProfile.cs(67,23): error CS0246: The type or namespace name 'UpdateLegalCaseCommand' could not be found (are you missing a using directive or an assembly reference?) [C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\TrueCounsel.Application.csproj]
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\Features\CaseParty\Commands\Handlers\UpdateCasePartyHandler.cs(28,42): warning S112: 'System.Exception' should not be thrown by user code. (https://rules.sonarsource.com/csharp/RSPEC-112) [C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\TrueCounsel.Application.csproj]
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\Features\Client\Commands\Handlers\UpdateClientHandler.cs(30,39): warning S112: 'System.Exception' should not be thrown by user code. (https://rules.sonarsource.com/csharp/RSPEC-112) [C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\TrueCounsel.Application.csproj]
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\Features\Client\Commands\Handlers\CreateClientHandler.cs(30,37): warning S112: 'System.Exception' should not be thrown by user code. (https://rules.sonarsource.com/csharp/RSPEC-112) [C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\TrueCounsel.Application.csproj]
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\Features\Court\Commands\Handlers\UpdateCourtHandler.cs(34,23): warning S112: 'System.Exception' should not be thrown by user code. (https://rules.sonarsource.com/csharp/RSPEC-112) [C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\TrueCounsel.Application.csproj]
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\Features\Lawyer\Commands\Handlers\RegisterLawyerHandler.cs(39,37): warning S3928: The parameter name 'UserId' is not declared in the argument list. (https://rules.sonarsource.com/csharp/RSPEC-3928) [C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\TrueCounsel.Application.csproj]
 
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
+Build FAILED.
 
-Time Elapsed 00:00:01.82
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\Features\CaseParty\Commands\Handlers\UpdateCasePartyHandler.cs(28,42): warning S112: 'System.Exception' should not be thrown by user code. (https://rules.sonarsource.com/csharp/RSPEC-112) [C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\TrueCounsel.Application.csproj]
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\Features\Client\Commands\Handlers\UpdateClientHandler.cs(30,39): warning S112: 'System.Exception' should not be thrown by user code. (https://rules.sonarsource.com/csharp/RSPEC-112) [C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\TrueCounsel.Application.csproj]
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\Features\Client\Commands\Handlers\CreateClientHandler.cs(30,37): warning S112: 'System.Exception' should not be thrown by user code. (https://rules.sonarsource.com/csharp/RSPEC-112) [C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\TrueCounsel.Application.csproj]
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\Features\Court\Commands\Handlers\UpdateCourtHandler.cs(34,23): warning S112: 'System.Exception' should not be thrown by user code. (https://rules.sonarsource.com/csharp/RSPEC-112) [C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\TrueCounsel.Application.csproj]
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\Features\Lawyer\Commands\Handlers\RegisterLawyerHandler.cs(39,37): warning S3928: The parameter name 'UserId' is not declared in the argument list. (https://rules.sonarsource.com/csharp/RSPEC-3928) [C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\TrueCounsel.Application.csproj]
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\Common\Mappings\MappingProfile.cs(66,23): error CS0246: The type or namespace name 'CreateLegalCaseCommand' could not be found (are you missing a using directive or an assembly reference?) [C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\TrueCounsel.Application.csproj]
+C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\Common\Mappings\MappingProfile.cs(67,23): error CS0246: The type or namespace name 'UpdateLegalCaseCommand' could not be found (are you missing a using directive or an assembly reference?) [C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\TrueCounsel.Application.csproj]
+    5 Warning(s)
+    2 Error(s)
+
+Time Elapsed 00:00:02.03
