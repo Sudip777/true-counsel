@@ -28,15 +28,6 @@ The solution follows **Clean Architecture** principles to ensure separation of c
 - **TrueCounsel.Infrastructure:** Contains Implementation details—EF Core DbContext, Repositories, Unit of Work (UoW), and Identity services. It depends on Application and Domain.
 - **TrueCounsel.API:** The Presentation layer—Controllers, Middleware, and Filters. It interacts with the system solely through MediatR.
 
-### Entity Relationship Diagram (Conceptual)
-
-![ERD Visualization](docs/assets/erd_visualization.png)
-
-The system is centered around the `LegalCase` entity, which serves as the aggregate root for:
-
-- **Clients & Lawyers:** Managing the primary stakeholders of a case.
-- **Courts & Case Types:** Categorizing the jurisdiction and nature of the litigation.
-- **Notes & Status History:** Tracking the chronological progress and evidence.
 
 ---
 
