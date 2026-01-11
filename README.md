@@ -2,11 +2,11 @@
 
 A robust Legal Management System built on .NET 9, following Clean Architecture principles and modern development patterns.
 
-## Overview
+## 🚀 Overview
 
 TrueCounsel is designed to streamline legal workflows, case tracking, and client management. It prioritizes maintainability, scalability, and performance through a decoupled architecture.
 
-## Tech Stack
+## 🛠 Tech Stack
 
 - **Framework:** .NET 9 Web API
 - **Layering:** Clean Architecture (Onion)
@@ -81,7 +81,7 @@ The project implements a strict request-response flow to ensure consistency:
 Once the application is running, the interactive API documentation (Scalar) is available at:
 `https://localhost:PORT/` (Redirects to `/scalar/v1`)
 
-## 🛡 Features
+## Features
 
 - **Granular Auth:** Secure authentication and identity management.
 - **Case Management:** Full lifecycle tracking of legal cases.
