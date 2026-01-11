@@ -64,4 +64,4 @@ nunit-*.xml
 
 # Custom
 *.txt
-
+*.log
