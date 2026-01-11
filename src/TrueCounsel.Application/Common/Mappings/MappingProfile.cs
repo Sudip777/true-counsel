@@ -26,32 +26,33 @@ namespace TrueCounsel.Application.Common.Mappings
         public MappingProfile()
         {
             // User
-            CreateMap<RegisterAuthCommand, User>()
-                .ForMember(d => d.PasswordHash, opt => opt.Ignore()); 
+            CreateMap<RegisterAuthCommand, User>(MemberList.Source)
+                .ForMember(d => d.PasswordHash, opt => opt.Ignore())
+                .ForSourceMember(s => s.Password, opt => opt.DoNotValidate()); 
             
             CreateMap<User, UserDto>();
 
             // Lawyer
-            CreateMap<RegisterLawyerCommand, Lawyer>();
-            CreateMap<UpdateLawyerCommand, Lawyer>();
+            CreateMap<RegisterLawyerCommand, Lawyer>(MemberList.Source);
+            CreateMap<UpdateLawyerCommand, Lawyer>(MemberList.Source);
             CreateMap<Lawyer, LawyerDto>();
 
             // Client
-            CreateMap<CreateClientCommand, Client>();
-            CreateMap<UpdateClientCommand, Client>();
+            CreateMap<CreateClientCommand, Client>(MemberList.Source);
+            CreateMap<UpdateClientCommand, Client>(MemberList.Source);
             CreateMap<Client, ClientDto>();
 
             // CaseType
-            CreateMap<CreateCaseTypeCommand, CaseType>();
+            CreateMap<CreateCaseTypeCommand, CaseType>(MemberList.Source);
             CreateMap<CaseType, CaseTypeDto>();
 
             // CaseCategory
-            CreateMap<CreateCaseCategoryCommand, CaseCategory>();
+            CreateMap<CreateCaseCategoryCommand, CaseCategory>(MemberList.Source);
             CreateMap<CaseCategory, CaseCategoryDto>();
 
             // CaseParty
-            CreateMap<CreateCasePartyCommand, CaseParty>();
-            CreateMap<UpdateCasePartyCommand, CaseParty>();
+            CreateMap<CreateCasePartyCommand, CaseParty>(MemberList.Source);
+            CreateMap<UpdateCasePartyCommand, CaseParty>(MemberList.Source);
             CreateMap<CaseParty, CasePartyDto>();
 
             // Court
@@ -59,15 +60,10 @@ namespace TrueCounsel.Application.Common.Mappings
                 .ForMember(d => d.CourtTypeId, opt => opt.MapFrom(s => s.CourtTypeField.Id))
                 .ForMember(d => d.CourtTypeName, opt => opt.MapFrom(s => s.CourtTypeField.Name));
 
-            // CaseParty
-            CreateMap<CreateCasePartyCommand, CaseParty>();
-            CreateMap<UpdateCasePartyCommand, CaseParty>();
-            CreateMap<CaseParty, CasePartyDto>();
-            CreateMap<CaseParty, CasePartyDto>();
 
             // LegalCase
-            CreateMap<CreateLegalCaseCommand, LegalCase>();
-            CreateMap<UpdateLegalCaseCommand, LegalCase>();
+            CreateMap<CreateLegalCaseCommand, LegalCase>(MemberList.Source);
+            CreateMap<UpdateLegalCaseCommand, LegalCase>(MemberList.Source);
             CreateMap<LegalCase, LegalCaseDto>();
         }
     }

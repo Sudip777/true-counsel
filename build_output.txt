@@ -1,0 +1,11 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  TrueCounsel.Domain -> C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Domain\bin\Debug\net9.0\TrueCounsel.Domain.dll
+  TrueCounsel.Application -> C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\bin\Debug\net9.0\TrueCounsel.Application.dll
+  TrueCounsel.Application.UnitTests -> C:\Users\sudip\source\repos\TrueCounsel\tests\TrueCounsel.Application.UnitTests\bin\Debug\net9.0\TrueCounsel.Application.UnitTests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.82

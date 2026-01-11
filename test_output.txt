@@ -1,0 +1,12 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  TrueCounsel.Domain -> C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Domain\bin\Debug\net9.0\TrueCounsel.Domain.dll
+  TrueCounsel.Application -> C:\Users\sudip\source\repos\TrueCounsel\src\TrueCounsel.Application\bin\Debug\net9.0\TrueCounsel.Application.dll
+  TrueCounsel.Application.UnitTests -> C:\Users\sudip\source\repos\TrueCounsel\tests\TrueCounsel.Application.UnitTests\bin\Debug\net9.0\TrueCounsel.Application.UnitTests.dll
+Test run for C:\Users\sudip\source\repos\TrueCounsel\tests\TrueCounsel.Application.UnitTests\bin\Debug\net9.0\TrueCounsel.Application.UnitTests.dll (.NETCoreApp,Version=v9.0)
+VSTest version 17.14.1 (x64)
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:     9, Skipped:     0, Total:     9, Duration: 210 ms - TrueCounsel.Application.UnitTests.dll (net9.0)

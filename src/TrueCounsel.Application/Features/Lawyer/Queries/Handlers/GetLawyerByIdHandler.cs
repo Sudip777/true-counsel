@@ -4,6 +4,8 @@ using AutoMapper;
 using MediatR;
 using TrueCounsel.Application.Features.Lawyer.Dtos;
 using TrueCounsel.Domain.Interfaces;
+using TrueCounsel.Application.Common.Abstractions;
+
 
 namespace TrueCounsel.Application.Features.Lawyer.Queries.Handlers
 {
