@@ -21,6 +21,7 @@ namespace TrueCounsel.API.Controllers
             _mediator = mediator;
         }
 
+        /// <summary> Gets all case parties. </summary>
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<CasePartyDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
@@ -29,6 +30,7 @@ namespace TrueCounsel.API.Controllers
             return Ok(result);
         }
 
+        /// <summary> Gets a case party by id. </summary>
         [HttpGet("{id}", Name = "GetCasePartyById")]
         [ProducesResponseType(typeof(CasePartyDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -39,6 +41,7 @@ namespace TrueCounsel.API.Controllers
             return Ok(result);
         }
 
+        /// <summary> Gets case parties by case id. </summary>
         [HttpGet("case/{caseId}")]
         [ProducesResponseType(typeof(IEnumerable<CasePartyDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetByCaseId(int caseId)
@@ -47,6 +50,7 @@ namespace TrueCounsel.API.Controllers
             return Ok(result);
         }
 
+        /// <summary> Creates a new case party. </summary>
         [HttpPost]
         [ProducesResponseType(typeof(CasePartyDto), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -68,6 +72,7 @@ namespace TrueCounsel.API.Controllers
             return CreatedAtRoute("GetCasePartyById", new { id = result.Id }, result);
         }
 
+        /// <summary> Updates an existing case party. </summary>
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(CasePartyDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -89,6 +94,7 @@ namespace TrueCounsel.API.Controllers
             return Ok(result);
         }
 
+        /// <summary> Deletes a case party. </summary>
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

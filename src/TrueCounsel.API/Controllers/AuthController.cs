@@ -8,7 +8,7 @@ using TrueCounsel.Application.Common.Models;
 using TrueCounsel.Application.Features.Auth.Commands;
 using TrueCounsel.Application.Features.Auth.Dtos;
 
-namespace TrueCounsel.API.Controllers.V1
+namespace TrueCounsel.API.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
@@ -36,6 +36,7 @@ namespace TrueCounsel.API.Controllers.V1
             return Ok(result);
         }
 
+        /// <summary> Registers a new user. </summary>
         [HttpPost("register")]
         [ProducesResponseType(typeof(UserDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

@@ -8,6 +8,8 @@ using TrueCounsel.Application.Features.Auth.Commands;
 using TrueCounsel.Application.Features.Auth.Dtos;
 using TrueCounsel.Domain.Entities;
 using TrueCounsel.Domain.Interfaces;
+using TrueCounsel.Application.Common.Abstractions;
+
 
 namespace TrueCounsel.Application.Features.Auth.Commands.Handlers
 {

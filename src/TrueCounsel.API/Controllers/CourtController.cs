@@ -12,8 +12,6 @@ namespace TrueCounsel.API.Controllers
 {
     /// <summary>
     /// API Controller for managing Court resources.
-    /// Provides RESTful endpoints for CRUD operations on courts.
-    /// Follows clean architecture with MediatR pattern for command/query handling.
     /// All delete operations perform soft deletes (preserving records for audit purposes).
     /// </summary>
     [ApiController]
@@ -27,14 +25,7 @@ namespace TrueCounsel.API.Controllers
             _mediator = mediator;
         }
 
-        /// <summary>
-        /// Retrieves all active courts (excluding soft-deleted records).
-        /// </summary>
-        /// <returns>List of court DTOs</returns>
-        /// <summary>
-        /// Retrieves all active courts (excluding soft-deleted records).
-        /// </summary>
-        /// <returns>List of court DTOs</returns>
+        /// <summary> Gets all courts. </summary>
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<CourtDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
@@ -43,12 +34,7 @@ namespace TrueCounsel.API.Controllers
             return Ok(result);
         }
 
-        /// <summary>
-        /// Retrieves a specific court by ID.
-        /// Returns 404 if the court is not found or has been soft-deleted.
-        /// </summary>
-        /// <param name="id">The court ID</param>
-        /// <returns>Court DTO if found</returns>
+        /// <summary> Gets a specific court by id. </summary>
         [HttpGet("{id}", Name = "GetCourtById")]
         [ProducesResponseType(typeof(CourtDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -59,11 +45,7 @@ namespace TrueCounsel.API.Controllers
             return Ok(result);
         }
 
-        /// <summary>
-        /// Creates a new court.
-        /// </summary>
-        /// <param name="request">Court creation request containing name, address, city, state, and court type ID</param>
-        /// <returns>Created court DTO with assigned ID</returns>
+        /// <summary> Creates a new court. </summary>
         [HttpPost]
         [ProducesResponseType(typeof(CourtDto), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -85,12 +67,7 @@ namespace TrueCounsel.API.Controllers
             return CreatedAtRoute("GetCourtById", new { id = result.Id }, result);
         }
 
-        /// <summary>
-        /// Updates an existing court.
-        /// </summary>
-        /// <param name="id">The court ID to update</param>
-        /// <param name="request">Court update request containing updated fields</param>
-        /// <returns>Updated court DTO</returns>
+        /// <summary> Updates an existing court. </summary>
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(CourtDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -120,13 +97,7 @@ namespace TrueCounsel.API.Controllers
             }
         }
 
-        /// <summary>
-        /// Soft deletes a court by ID.
-        /// The record is preserved in the database with a DeletedAt timestamp for audit purposes.
-        /// Subsequent queries (GetAll, GetById) will exclude the soft-deleted record.
-        /// </summary>
-        /// <param name="id">The court ID to delete</param>
-        /// <returns>NoContent (204) on success, NotFound (404) if court not found</returns>
+        /// <summary> Soft deletes a court by id. </summary>
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

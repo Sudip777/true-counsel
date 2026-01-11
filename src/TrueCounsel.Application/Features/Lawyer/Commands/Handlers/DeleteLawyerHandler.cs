@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using MediatR;
 using TrueCounsel.Application.Features.Lawyer.Commands;
 using TrueCounsel.Domain.Interfaces;
+using TrueCounsel.Application.Common.Abstractions;
+
 
 namespace TrueCounsel.Application.Features.Lawyer.Commands.Handlers
 {

@@ -10,10 +10,10 @@ namespace TrueCounsel.Domain.Exceptions
     /// Base class for all domain-specific exceptions.
     /// Use this when the exception carries business meaning, not technical failure.
     /// </summary>
-    public abstract class DomainException : Exception
+    public class DomainException : Exception
     {
-        protected DomainException(string message) : base(message) { }
-        protected DomainException(string message, Exception inner) : base(message, inner) { }
-        protected DomainException() : base() { }
+        public DomainException(string message) : base(message) { }
+        public DomainException(string message, Exception inner) : base(message, inner) { }
+        public DomainException() : base() { }
     }
 }
